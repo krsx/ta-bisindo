@@ -3,81 +3,90 @@
 
 % Ubah bagian-bagian berikut dengan isi dari pendahuluan
 
-Penelitian ini dilatarbelakangi oleh \lipsum[1][1-5]
-
 \section{Latar Belakang}
 \label{sec:latarbelakang}
+Makhluk sosial memiliki kebutuhan dasar untuk berkomunikasi dengan sesama. Salah satu cara yang umum digunakan adalah melalui penggunaan bahasa. Komunikasi biasanya dilakukan dengan menggunakan bahasa sehari-hari yang umum digunakan, seperti bahasa Indonesia, bahasa daerah, dan bahasa Inggris. Selain itu, komunikasi juga dapat dilakukan dengan menggunakan bahasa isyarat. Bahasa isyarat merupakan bahasa yang mengutamakan komunikasi manual dengan mengkombinasikan bentuk tangan, orientasi gerak tangan, lengan, bibir, ataupun ekspresi mimik wajah untuk mengungkapkan sesuatu. Tunarungu merupakan kondisi ketidakmampuan seorang dalam menangkap rangsangan secara auditori melalui indra pendengarannya \parencite{maulida2017}. Penyandang tunarungu menggunakan bahasa isyarat dalam berkomunikasi, baik kepada sesama penyandang tunarungu atauapun masyarakat sekitar. Terdapat dua bahasa isyarat yang digunakan di Indonesia, yaitu Sistem Isyarat Bahasa Indonesia (SIBI) dan Bahasa Isyarat Indonesia (BISINDO). SIBI merupakan bahasa isyarat yang diakui sebagai bahasa isyarat resmi di Indonesia dan menjadi bahasa isyarat yang digunakan dalam kegiatan belajar mengajar di Sekolah Luar Biasa (SLB). Namun, pada realitanya BISINDO lebih umum digunakan dalam kehidupan sehari \_ hari karena kemudahan dalam pembentukan bahasa isyarat yang tidak terikat pada struktur baku bahasa Indonesia dengan disertai ekspresi wajah dalam pengungkapannya \parencite{handhika2018}. Oleh karena itu, saat ini BISINDO sedang diusahakan untuk menjadi bahasa isyarat resmi Indonesia menggantikan SIBI oleh Gerakan Kesejahteraan Tunarungu Indonesia (GERKATIN) \parencite{borman2018}.
 
-Pesatnya perkembangan roket yang merupakan \lipsum[1]
+GERKATIN mencatat terdapat setidaknya 2,9 juta orang atau sekitar 1,25\% dari total populasi penduduk Indonesia yang merupakan masyarakat penyandang tunarungu \parencite{evitasari2015}. Jumlah ini terbilang cukup besar apabila dibandingkan dengan jumlah penduduk Indonesia secara keseluruhan. Namun, minimnya pengetahuan masyarakat Indonesia mengenai penggunaan bahasa isyarat menyebabkan adanya keterbatasan bagi penyandang tunarungu dalam berkomunikasi dengan masyarakat sekitar. Keterbatasan ini berakibat pada sulitnya penyandang tunarunugu dalam meningkatkan kualitas hidupnya, seperti minimnya peluang kerja, keterbatasan akses informasi penting, dan terhambatnya akses pendidikan yang berkualitas.
 
-\lipsum[2]
+Perkembangan teknologi saat ini telah menghasilkan berbagai inovasi yang dapat membantu manusia dalam menjalani kehidupan sehari – hari. \emph{Deep learning} adalah bagian dari ilmu \emph{machine learning} yang berbasis pada jaringan syarat tiruan dengan banyak hidden layers sehingga dapat menyelesaikan masalah komputasi yang kompleks dengan baik. LSTM (\emph{Long Short-Term Memory}) adalah salah satu arsitektur deep learning yang memiliki kemampuan untuk mengingat dan menyimpan informasi masa lampau, serta mempelajari suatu data yang bersifat sekuensial \parencite{sadli2020}. LSTM merupakan arsitektur \emph{deep learning yang} ideal untuk menerjemahkan bahasa isyarat, mengingat data bahasa isyarat bersifat sekuensial. Sebelumnya penggunaan LSTM dalam penelitian oleh Putri, et al., telah berhasil mengembangkan deteksi real-time bahasa isyarat Indonesia (BISINDO) pada 30 kelas kata isyarat dengan akurasi 65\% \parencite{putri2022}. Pada penelitian yang dilakukan oleh Suhartijo dan Aljabar, telah berhasil mengembangkan BISINDO (Bahasa Isyarat Indonesia) \emph{sign language recognition using CNN and LSTM} dengan akurasi sebesar 86\% pada 10 kelas isyarat yang diujikan dengan menggunakan LSTM \parencite{aljabar2020}. 
+
+Perkembangan teknologi juga melahirkan sebuah perangkat   
+
+% Perkembangan teknologi juga melahirkan sebuah perangkat komputasi edge, yaitu \emph{Single Board Computer}. \emph{Single Board Computer} merupakan perangkat keluaran NVIDIA berukuran kecil dan didedikasikan untuk menjalankan lebih dari satu \emph{neural network} secara paralel. \emph{Single Board Computer} dapat menjadi solusi dalam mengimplementasikan model \emph{deep learning} secara lokal pada perangkat yang portabel dan hemat energi. \emph{Single Board Computer} yang dilengkapi dengan GPU (\emph{Graphic Processing Unit}) keluaran NVIDIA menyediakan library seperti CUDA, cuDNN, dan TensorRT yang dapat mengoptimalisasi dan memaksimalkan implementasi model deep learning dengan biaya yang lebih terjangkau jika dibandingkan dengan implementasi pada laptop ataupun komputer pada umumnya\parencite{nvidiaJetsonNano}. Namun, penggunaan \emph{Single Board Computer} masih minim digunakan, terkhususnya pada implementasi model \emph{deep learning} untuk pendeteksian pose, seperti penerjemahan bahasa isyarat.
+
+Diperlukan adanya suatu sistem penerjemah dari bahasa isyarat ke suara sebagai salah satu solusi dalam mengatasi masalah komunikasi antara penyandang tunarungu dengan masyarakat umum, demi meningkatkan kualitas hidup tunarungu di Indonesia. Sistem penerjemah yang ada juga masih belum memanfaatkan perangkat \emph{Single Board Computer} dan hanya diimplementasikan pada perangkat laptop / komputer. Oleh karena itu, melalui tugas akhir ini penulis mengusulkan metode penerjemahan Bahasa Isyarat Indonesia (BISINDO) ke media suara menggunakan LSTM berbasis \emph{Single Board Computer}. BISNDO dipilih sebagai bahasa isyarat yang akan diterjemahkan demi mendukung GERTAKIN dalam mengupayakan BISINDO sebagai bahasa isyarat resmi dan utama di Indonesia. Implementasi akhir sistem akan dilakukan pada \emph{Single Board Computer} sebagai salah satu solusi perangkat komputasi edge yang portable dan hemat energi.
 
 \section{Permasalahan}
 \label{sec:permasalahan}
 
-Dari permasalahan tersebut maka \lipsum[1][1-6]
+Berdasarkan latar belakang permasalahan yang telah diuarikan diatas, dapat diketahui bahwa penerjemah Bahasa Isyarat Indonesia (BISINDO) yang menggunakan arsitektur \emph{Long Short-Term Memory} (LSTM) saat ini masih menunjukkan akurasi yang kurang optimal. Output dari sistem penerjemah yang ada saat ini masih terbatas pada tampilan teks untuk satu kata saja. Pendekatan ini terasa kurang alami dan dapat menyulitkan penyandang tunarungu dalam berinteraksi dengan masyarakat sekitar. Implementasi sistem penerjemah bahasa isyarat saat ini terbatas pada penggunaan laptop atau komputer saja dan belum memanfaatkan sepenuhnya kemampuan \emph{Single Board Computer} yang lebih efisien, terjangkau, dan memiliki mobilitas tinggi.
 
 \section{Tujuan}
 \label{sec:Tujuan}
 
-Tujuan dari \lipsum[1][1-3] adalah:
+Adapun tujuan dalam pembuatan tugas akhir ini adalah untuk mengembangkan sistem penerjemah Bahasa isyarat Indonesia (BISINDO) menggunakan \emph{Long Short-Term Memory} (LSTM) yang dapat menerjemahkan dengan akurasi yang baik dengan menghasilkan output berupa serangkaian kata yang dapat disusun menjadi kalimat dan selanjutnya diubah menjadi suara dengan implementasi akhir sistem pada perangkat \emph{Single Board Computer}. Adanya sistem ini diharapkan dapat membantu dalam mempermudah komunikasi antara penyandang tunarungu dengan masyarakat umum dan memaksimalkan perangkat \emph{Single Board Computer} dalam implementasi model \emph{deep learning}.  
 
-\begin{enumerate}[nolistsep]
-
-  \item Membuat \lipsum[2][1-3]
-
-  \item \lipsum[3][1-3]
-
-\end{enumerate}
+\newpage
 
 \section{Batasan Masalah}
 \label{sec:batasanmasalah}
 
-Batasan-batasan dari \lipsum[1][1-3] adalah:
+Adapun dalam memfokuskan dalam menyelesaikan permasalahan dalam tugas akhir ini, penulis mengidentifikasi batasan – batasan masalah sebagai berikut:
 
 \begin{enumerate}[nolistsep]
 
-  \item Mempermudah \lipsum[2][1-3]
+  \item Bahasa isyarat yang akan digunakan adalah Bahasa Isyarat Indonesia (BISINDO).
 
-  \item \lipsum[3][1-5]
+  \item Konteks bahasa isyarat yang akan diterjemahkan adalah 12 kata dalam bahasa isyarat yang kemudian dapat diubah menjadi kalimat tanya yang umum digunakan sehari – hari.
 
-  \item \lipsum[4][1-5]
+  \item Terdapat 4 buah isyarat tambahan di luar BISINDO untuk menunjukkan isyarat mulai, keadaan stand by, menghapus kata yang telah diterjemahkan, dan menyuarakan kalimat yang telah disusun. Isyarat ini digunakan untuk memudahkan dalam pengoperasian sistem secara keseluruhan.
 
+  \item Arsitektur yang akan digunakan adalah LSTM (\emph{Long Short-Term Memory}).
+  
+  \item Model penerjemah bahasa isyarat akan diimplementasikan pada \emph{Single Board Computer} Developer seri B01.
 \end{enumerate}
 
-\section{Sistematika Penulisan}
-\label{sec:sistematikapenulisan}
+\section{Manfaat}
+\label{sec:manfaatpenulisan}
 
-Laporan penelitian tugas akhir ini terbagi menjadi \lipsum[1][1-3] yaitu:
+Adapun manfaat yang didapat pada pembuatan tugas akhir ini adalah sebagai berikut:
 
 \begin{enumerate}[nolistsep]
 
-  \item \textbf{BAB I Pendahuluan}
-
-        Bab ini berisi \lipsum[2][1-5]
-
+  \item \textbf{Bagi masyarakat} \\     
+  Adanya sistem penerjemah Bahasa Isyarat Indonesia (BISINDO) ke media suara menggunakan LSTM berbasis \emph{Single Board Computer} dapat menjadi suatu inovasi yang dapat memudahkan komunikasi tunarungu dengan khalayak umum. Sistem ini juga diharapkan menjadi salah satu pedoman inovasi lanjutan pada topik yang sama atau beririsan.
         \vspace{2ex}
 
-  \item \textbf{BAB II Tinjauan Pustaka}
-
-        Bab ini berisi \lipsum[3][1-5]
-
-        \vspace{2ex}
-
-  \item \textbf{BAB III Desain dan Implementasi Sistem}
-
-        Bab ini berisi \lipsum[4][1-5]
-
-        \vspace{2ex}
-
-  \item \textbf{BAB IV Pengujian dan Analisa}
-
-        Bab ini berisi \lipsum[5][1-5]
-
-        \vspace{2ex}
-
-  \item \textbf{BAB V Penutup}
-
-        Bab ini berisi \lipsum[6][1-5]
+  \item \textbf{Bagi penulis} \\
+  Pembuatan tugas akhir ini memberikan banyak manfaat bagi penulis, yaitu dapat mengasah kemampuan dalam berinovasi untuk memecahkan permasalahan nyata yang dihapadi oleh masyarakat, pola pikir yang kritis, login, dan sistematis, serta dapat memudahkan komunikasi saudari kandung penulis yang juga penyandang tunarungu dalam berkomunikasi dengan lingkungan sekitar.
 
 \end{enumerate}
+
+% Dalam pembuatan laporan penelitian tugas akhir ini akan terbagi menjadi lima bagian bab yang meliputi:
+
+% \begin{enumerate}[nolistsep]
+
+%   \item \textbf{BAB I Pendahuluan} \\     
+%       Bab ini berisi penjelasan mengenai latar belakang yang mengarah pada permasalahan yang akan diangkat serta solusi yang diberikan. Selain itu terdapat pula tujuan dari penelitian serta batasan masalah dari cakupan yang akan dikerjakan.
+%         \vspace{2ex}
+
+%   \item \textbf{BAB II Tinjauan Pustaka} \\
+%       Bab ini berisi penelitian terdahulu dengan topik yang berhubungan dengan penelitian yang akan dilakukan. Selain itu, pada bab ini dijelaskan juga mengenai teori - teori yang akan digunakan untuk membantu pengerjaan penelitian.
+
+%         \vspace{2ex}
+
+%   \item \textbf{BAB III Desain dan Implementasi Sistem} \\
+%       Bab ini berisi penjelasan mengenai rancangan dan metodologi penelitian secara sistematis serta pengimplementasiannya dalam setiap metode sehingga mendapatkan hasil dari penelitian.
+
+%         \vspace{2ex}
+
+%   \item \textbf{BAB IV Pengujian dan Analisa} \\
+%       Bab ini berisi mengenai hasil penelitian yang telah didapatkan dari metodologi yang telah dilakukan. Kemudian akan dijelaskan juga mengenai pengujian yang akan dilakukan dalam keadaan yang telah ditentukan.
+
+%         \vspace{2ex}
+
+%   \item \textbf{BAB V Penutup} \\
+%       Bab ini berisi kesimpulan yang didapatkan dari hasil penelitian berdasarkan permasalahan dan tujuan di awal. Selain itu, terdapat juga saran untuk para peneliti yang ingin mengembangkan penelitian ini.
+
+% \end{enumerate}

@@ -21,7 +21,7 @@
 \usepackage[table,xcdraw]{xcolor}
 
 % Pengaturan kutipan artikel
-\usepackage[style=apa, backend=biber]{biblatex}
+\usepackage[style=ieee, backend=biber]{biblatex}
 
 % Package lainnya
 \usepackage{changepage}
@@ -94,6 +94,7 @@
 \titlespacing{\section}{0ex}{1ex}{0ex}
 \titlespacing{\subsection}{0ex}{0.5ex}{0ex}
 \titlespacing{\subsubsection}{0ex}{0.5ex}{0ex}
+\setcounter{secnumdepth}{3} % Untuk memberi penomoran pada \subsubsection
 
 \input{pustaka/variables.tex}
 
@@ -130,6 +131,7 @@
 % Sampul luar Bahasa Indonesia
 \newcommand\covercontents{sampul/konten-id.tex}
 \input{sampul/sampul-luar.tex}
+\cleardoublepage
 
 % Atur ulang penomoran halaman
 \setcounter{page}{1}

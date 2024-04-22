@@ -1,41 +1,225 @@
-\chapter{DESAIN DAN IMPLEMENTASI}
-\label{chap:desainimplementasi}
+\chapter{METODOLOGI}
+\label{chap:metodologi}
 
 % Ubah bagian-bagian berikut dengan isi dari desain dan implementasi
 
-Penelitian ini dilaksanakan sesuai \lipsum[1][1-5]
+% Penelitian ini dilaksanakan sesuai \lipsum[1][1-5]
+% \section{Data dan Peralatan}
+% Adapun tata pendukung berupa data dan peralatan yang digunakan dalam pelaksanaan penelitian tugas akhir ini adalah sebagai berikut:
 
-\section{Deskripsi Sistem}
-\label{sec:deskripsisistem}
+% \noindent \textbf{Data}\\
+% Data yang akan digunakan merupakan kumpulan citra berukuran 640px x 480px. Kumpulan citra ini didapat melalui ekstraksi video yang berisi pengucapan bahasa isyarat BISINDO. Kumpulan citra ini dibuat secara mandiri oleh penulis menyesuaikan dengan kebutuhan kosakata isyarat dan kosakata tambahan yang dibutuhkan.
 
-Sistem akan dibuat dengan \lipsum[1-2]
+% \noindent \textbf{Peralatan}\\
+% Adapun peralatan yang digunakan dalam penelitian tugas akhir ini adalah sebagai berikut:
 
-\section{Implementasi Alat
-  \label{sec:implementasi alat}}
+% \begin{itemize}
+%   \item Visual Studio Code
+%   \item Anaconda
+%   % \item Jetson Nano B01 Developer Kit
+%   \item Intel Next Unit Computing (NUC) 
+%   \item Webcam
+%   \item Speaker
+%   \item Laptop
+% \end{itemize}
 
-Alat diimplementasikan dengan \lipsum[1]
+\section{Metode yang Digunakan}
+Penelitian tugas akhir ini dilaksankaan sesuai dengan desain sistem yang tertera pada bab ini. Desain sistem yang dibuat merupakan konsep dari perancangan dan implementasi penelitian ini. Blok diagram pada gambar \ref{fig:blockdiagrammethod} merupakan serangkaian alur yang diikuti dalam pelaksanaan dan pengimplementasian tugas akhir ini.
 
-% Contoh pembuatan potongan kode
-\begin{lstlisting}[
-  language=C++,
-  caption={Program halo dunia.},
-  label={lst:halodunia}
-]
-#include <iostream>
+\begin{figure}[H]
+  \centering
 
-int main() {
-    std::cout << "Halo Dunia!";
-    return 0;
-}
-\end{lstlisting}
+  \includegraphics[scale=0.15]{gambar/bab3-block-diagram-nuc.jpg}
 
-\lipsum[2-3]
+  \caption{Blok diagram metodologi}
+  \label{fig:blockdiagrammethod}
+\end{figure}
 
-% Contoh input potongan kode dari file
-\lstinputlisting[
-  language=Python,
-  caption={Program perhitungan bilangan prima.},
-  label={lst:bilanganprima}
-]{program/bilangan-prima.py}
+\subsection{Dataset Citra}
 
-\lipsum[4]
+Dataset yang akan digunakan pada tugas akhir ini merupakan kumpulan citra yang berbentuk sekuensial atau berurutan. Pengambilan dataset dilakukan di dalam ruangan tertutup dengan jarak bervariassi antara kurang lebih 1 - 2 meter dari kamera laptop dengan posisi setengah berdiri (dari pinggang hinga kepala). Data video yang didapatkan kemudian diproses melalui \textit{library} Python OpenCV sehingga dihasilkan citra. Pengambilan citra dilakukan sebesar 30 \textit{frame per second} (FPS) sehingga dalam satu detik terdapat 30 citra. Pembatasan FPS ini diharapkan dapat memberikan hasil yang stabil dan konsisten dalam pengambilan citra. Citra akan disimpan pada laptop secara lokal sehingga dapat diamati nantinya apakah gerakan bahasa isyarat yang dilakukan telah benar atau tidak dan menghasilkan dataset yang baik digunakan dalam pembuatan model klasifikasi. Dapat dilihat pada gambar \ref{fig:datasetMethod} akan dihasilk total 30 citra. Perlu diperhatikan bahwa ukuran dari citra yang akan digunakan pada tugas akhir ini adalah sebesar 640px x 480px
+
+\begin{figure}[H]
+  \centering
+
+  \includegraphics[scale=0.95]{gambar/bab3-dataset-citra.png}
+
+  \caption{Dataset kosakata saya}
+  \label{fig:datasetMethod}
+\end{figure}
+
+Adapaun bahasa isyarat yang akan digunakan pada tugas akhir ini meliputi 12 kosakata isyarat BISINDO yang memiliki konteks kalimat tanya yang umum digunakan sehari – hari. Nantinya untuk setiap kosakata tersebut akan disimpan sebanyak 30 jumlah frame. Kosakata yang akan digunakan adalah sebagai berikut:
+
+\newpage
+\begin{longtable}{|c|c|c|}
+  \caption{Kosakata BISINDO}
+  \label{tb:kosakataBISINDO}                                   \\
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{No} & \textbf{Kelas} & \textbf{Jumlah Frame} \\
+  \hline
+  1            & Maaf                       & 30            \\
+  2            & Tolong                     & 30            \\
+  3            & Terimakasih                & 30            \\
+  4            & Nama                       & 30            \\
+  5            & Kamu                       & 30            \\
+  6            & Siapa                       & 30            \\
+  7            & Rumah                       & 30            \\
+  8            & Dimana                       & 30            \\
+  9            & Berapa                       & 30            \\
+  10            & Harga                       & 30            \\
+  11            & Barang                       & 30            \\
+  12            & Ini                       & 30            \\
+  \hline
+\end{longtable}
+
+Adapun digunakan tambahan 4 buah isyarat tambahan di luar isyarat BISINDO untuk mempermudah kontrol sistem penerjemah. Isyarat tersebut meliputi isyarat mulai (\textit{start}), isyarat \textit{standby}, isyarat hapus kata (\textit{delete}), dan isyarat terjemah (\textit{translate}).  
+\begin{longtable}{|c|c|c|}
+  \caption{Isyarat Kontrol Tambahan}
+  \label{tb:isyaratkontrol}                                   \\
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{No} & \textbf{Kelas} & \textbf{Jumlah Frame} \\
+  \hline
+  1            & \textit{Start}                       & 30            \\
+  2            & \textit{Standby}                     & 30            \\
+  3            & \textit{Delete}                 & 30            \\
+  4            & \textit{Translate}                        & 30            \\
+  \hline
+\end{longtable}
+
+\subsection{Estimasi Pose}
+
+\begin{figure}[H]
+  \centering
+
+  \includegraphics[scale=0.4]{gambar/bab3-estimasi-pose.png}
+
+  \caption{Estimasi pose pada citra}
+  \label{fig:poseEstimationMethod}
+\end{figure}
+
+Untuk setiap citra pada 30 data yang telah didapatkan akan diproses oleh \textit{framework} MediaPipe. \textit{Framework} ini dapat melacak titik – titik bagian tubuh atau \textit{landmark} menggunakan model yang disediakan. Model MediaPipe yang akan digunakan adalah MediaPipe pose dan MediaPipe hand. Dalam pembentukan isyarat BISINDO, bagian tubuh yang bergerak adalah bagian tangan dan lengan. Melalui MediaPipe hand akan dilakukan ekstraksi untuk 21 \textit{landmark} pada bagian tangan, sehingga total \textit{landmark} untuk tangan kanan dan kiri adalah 42 \textit{landmark}. Kemudian melalui MediaPipe pose akan dilakukan ekstraksi pada bagian bahu sampai lengan sehingga \textit{landmark} yang akan digunakan hanya pada posisi 11 hingga 22 sehingga total \textit{landmark} untuk bagian tubuh adalah 12 \textit{landmark}. Untuk setiap \textit{landmark} yang didapatkan akan digunakan koordinat x dan y saja (koordinat z dan \textit{visibility} tidak digunakan). Hal ini berguna demi menghasilkan model akhir yang memiliki kemampuan untuk invarian terhadap skala (jarak kamera tidak mempengaruhi estimasi pose) dan invarian terhadap rotasi (adanya rotasi tidak mempengaruhi koordinat yang digunakan). Hal ini juga dilakukan demi melakukan reduksi dimensi sehingga mengurangi resiko \textit{overfitting} dan dapat mempercepat performa model. Nantinya, untuk setiap citra yang akan diproses pada MediaPipe akan menghasilkan total 42 koordinat dari \textit{landmark} tangan kanan, 42 koordinat dari \textit{landmark} tangan kiri, dan 24 koordinat dari \textit{landmark} pose.Hal ini dapat dilihat pada gambar \ref{fig:poseEstimationMethod}, \textit{landmark} yang akan digunakan hanyalah \textit{landmark} yang saling terhubung (ditandai dengan garis putih). Sedangkan \textit{landmark} yang hanya berbentuk titik saja tidak akan digunakan dan tidak akan diambil data koordinatnya. Data koordinat \textit{landmark} yang berbentuk array multidimensi kemudian akan diproses melalui \textit{library} Numpy dengan menggunakan fungsi concatenate menjadi satu dimensi saja untuk mempermudah pada klasifikasi pose pada tahap \textit{training} data.
+
+\subsubsection{Normalisasi Data}
+Keseluruhan data koordinat yang didapatkan melalui estimasi pose menggunakan MediaPipe akan melalui proses normalisasi. Normalisasi data dilakukan demi mengatasi adanya \textit{scale invariant} dan \textit{position invariant}. \textit{Scale invariant} dalam konteks tugas akhir ini adalah kemampuan model dalam mengklasifikasikan data bahasa isyarat yang dilakukan oleh berbagai macam pengguna yang memiliki bentuk tubuh yang berbeda - beda. Selain itu, \textit{scale invariant} juga menyebabkan jarak pengguna dengan kamera tidak mempengaruhi proses klasifikasi model. \textit{Position invariant} dalam konteks tugas akhir ini adalah kemampuan model dalam mengklasifikasikan data bahasa isyarat dalam berbagai posisi pengguna terhadap kamera (dengan syarat utama bahwa posisi tangan dan bahu dapat terlihat jelas).
+
+\begin{equation}
+  \label{eq:shouderWidthNorm}
+  w = \sqrt{(x_{ka} - x_{ki})^2 + (y_{ka} - y_{ki})^2}
+\end{equation}
+
+\begin{equation}
+  \label{eq:shoulderMidpointNorm}
+  x_m = \frac{x_{ka} + x_{ki}}{2} ; \\
+   y_m = \frac{y_{ka} + y_{ki}}{2}
+\end{equation}
+
+\begin{equation}
+  \label{eq:normalization}
+  x'_i = \frac{x_i - x_m}{w} ;  \\
+   y'_i = \frac{y_i - y_m}{w}
+\end{equation}
+
+Dalam melakukan proses normalisasi, terlebih dahulu didapatkan panjang dari bahu dengan menggunakan rumus jarak \textit{Euclidian}. Rumus ini akan menghitung kuadrat selisih antara koordinat x dan y antara \textit{landmark} bahu kanan dan kiri. Hasil dari kedua operasi tersebut kemudian dijumlahkan dan dihitung akar kuadratnya. Perhitungan jarak \textit{Euclidian} dapat dapat dilihat pada rumus \ref{eq:shouderWidthNorm}. Untuk mendapatkan titik tengah dari \textit{landmark} bahu, dilakukan dengan menjumlahkan masing - masing koordinat x dan y dari bahu kanan dan kiri, kemudian dibagi dengan 2. Proses ini dapat dilihat pada rumus \ref{eq:shoulderMidpointNorm}.
+
+Normalisasi data akan dilakukan dengan melakukan pengurangan terhadap setiap koordinat \textit{landmark} dengan koordinat titik tengah dari bahu dan diakhiri dengan pembagian dengan panjang dari bahu yang telah dihitung sebelumnya. Hal ini dapat dilihat pada rumus \ref{eq:normalization}. Perlu diketahui bahwa pada perumusan diatas, $w$ adalah panjang bahu, $x_{ka}$ adalah koordinat x bahu kanan, $y_{ka}$ adalah kooridnat y bahu kanan, $x_{ki}$ adalah koordinat x bahu kiri, $y_{ki}$ adalah kooridnat y bahu kiri, $x'_i$ adalah koordinat x yang telah dinormalisasi, dan $y'_i$ adalah kooridnat y yang telah dinormalisasi.
+
+Nantinya data koordinat yang telah dinormalisasi ini akan disimpan dalam bentuk array dengan bantuan Numpy dan akan digunakan dalam proses \textit{training}. Normalisasi data tidak hanya digunakan dalam proses pembuatan model, tetapi juga nantinya dalam proses klasifikasi bahasa isyarat dengan menggunakan model. Hal ini dilakukan sehingga koordinat - kooridnat yang diproses adalah homogen dan menghindari adanya \textit{noise} atau \textit{error}.
+
+\subsection{Klasifikasi Pose}
+
+\begin{figure}[H]
+  \centering
+
+  \includegraphics[scale=0.55]{gambar/bab3-model-lstm.png}
+
+  \caption{Model LSTM}
+  \label{fig:modelLSTM}
+\end{figure}
+
+Dalam melakukan klasifikasi terhadap pose atau gerakan isyarat yang dilakukan, digunakan model LSTM sekuensial. Model ini tersusun atas serangkaian layer yang akan diproses secara bertahap dari awal hingga akhir. Layer pertama merupakan layer \textit{TimeDistributed} yang di dalamnya terdapat layer \textit{Dense} dengan jumlah unit sebesar 265, fungsi aktivasi '\textit{tanh}' dan input dengan bentuk (30, 108). Penggunaan \textit{TimeDistributed} memastikan bahwa untuk setiap frame akan diproses secara independen, dimana akan diimplementasikan layer \textit{Dense} yang konsisten pada setiap frame yang ada. Perlu diperhatikan bahwa bentuk (30, 108) diartikan sebagai bahwa akan terdapat 30 jumlah frame, dimana untuk setiap frame akan diekstrak total 108 fitur. Setelahnya dilanjutkan dengan layer LSTM yang memiliki jumlah unit 128, return\_sequences=False, fungsi aktivasi '\textit{tanh}', dan input dalam bentuk (30, 108). Setelah layer LSTM diberikan layer Dropout dengan nilai 0.5 untuk menghindari adanya kelebihan weight yang mana dapat mengakibatkan \textit{overfitting} pada model. Dilanjutkan dengan layer \textit{Dense} dengan jumlah unit 128 dan fungsi aktivasi 'relu'. Setelah layer \textit{Dense} juga diberikan layer Dropout dengan nilai 0.5 untuk menghindari adanya kelebihan weight yang mana dapat mengakibatkan \textit{overfitting} pada model. Layer terakhir adalah layer \textit{Dense} yang menggunakan fungsi aktivasi '\textit{softmax}'. Jumlah unit di layer ini sesuai dengan actions.shape[0], yang berarti jumlah unit sama dengan jumlah aksi atau kategori yang mungkin. Fungsi aktivasi '\textit{softmax}' memastikan bahwa keluaran dari model ini adalah distribusi probabilitas di atas semua kategori yang mungkin, dengan total semua probabilitas sama dengan 1. Model ini kemudian dikompilasi menggunakan optimizer Adam, yang dikenal karena performa dan efisiensinya dalam pelatihan jaringan saraf, dan menggunakan \textit{categorical crossentropy} sebagai fungsi \textit{loss} karena ini adalah masalah klasifikasi multi-kelas, dengan metrik akurasi kategorikal untuk memantau performa model selama proses \textit{training}
+
+\subsection{Sistem Kontrol}
+Adapun dalam pembuatan tugas akhir ini, sistem kontrol adalah serangkaian proses yang akan mengatur bagaimana nantinya bahasa isyarat akan dideteksi, melakukan penanggulangan terhadap adanya kesalahan pendeteksian, menyatukan berbagai kata dalam bentuk kalimat, penghapusan kosakata, dan penerjemahan kalimat dalam bentuk suara. Sistem kontrol akan dibagi menjadi 2, yaitu program deteksi bahasa isyarat dan program pembentukan kalimat.
+
+\subsubsection{Program Deteksi Bahasa Isyarat}
+
+\begin{figure}[H]
+  \centering
+
+  \includegraphics[scale=0.54]{gambar/bab3-flowchart-deteksi.png}
+
+  \caption{Flowchart program deteksi bahasa isyarat}
+  \label{fig:flowchartdeteksi}
+\end{figure}
+Pada program deteksi bahasa isyarat (dapat dilihat pada \ref{fig:flowchartdeteksi}) akan berjalan terlebih dahulu ketika pengguna terdeteksi benar memberikan isyarat start dan pengguna dapat membentuk isyarat yang diinginkan. Kemudian \textit{class} kosakata isyarat yang terdeteksi oleh model akan dipastikan apakah melebihi \textit{threshold} atau ambang batas yang telah ditentukan untuk menghindari adanya kesalahan pembacaan (\textit{error}) dan \textit{noise} dalam pembacaan bahasa isyarat. Apabila dibawah dari \textit{threshold}, maka program akan melakukan pendeteksian kembali bahasa isyarat dari pengguna. Apabila benar diatas dari \textit{threshold} yang ditentukan, maka akan diperiksa apakah \textit{class} yang terdeteksi sama dengan \textit{class} sebelumnya. Apabila terdeteksi sama maka nilai \textit{flag} akan ditambah 1. Nilai \textit{flag} akan diperiksa apakah kurang dari 2, apabila salah maka akan kembali untuk mendeteksi bahasa isyarat dari pengguna. Hal ini dilakukan demi menghindari terjadinya pembacaan isyarat secara berulang kali. Apabila nilai \textit{flag} bernilai 1 atau 0 (nilai awal \textit{flag} adalah 0), maka akan dilanjutkan ke program pembentukan kalimat.
+
+\subsubsection{Program Pembentuk Kalimat}
+\begin{figure}[H]
+  \centering
+
+  \includegraphics[scale=0.54]{gambar/bab3-flowchart-kalimat.png}
+
+  \caption{Flowchart Program pembentukan kalimat}
+  \label{fig:flowchartkalimat}
+\end{figure}
+
+Pada program pembentukan kalimat (dapat dilihat pada \ref{fig:flowchartkalimat}), terlebih dahulu \textit{class} kosakata yang terdeteksi akan dimasukkan pada suatu array kalimat dan ditambahkan spasi setelahnya. Hal ini nantinya akan memudahkan pengguna dalam membentuk kalimat yang diinginkan. Kemudian dilakukan pengecekan apakah pengguna melakukan isyarat delete atau hapus, apabila iya maka akan dilakukan penghapusan pada kata terakhir pada array. Apabila tidak maka akan dilanjutkan untuk melakukan pendeteksian bahasa isyarat selanjutnya. Dilakukan juga pengecekan apakah terdapat isyarat translate atau isyarat terjemah, jika iya maka akan dilakukan konversi dari array kalimat yang telah disimpan ke dalam suara dengan memanfaatkan \textit{library} gTTS. Library gTTS merupakan \textit{library} Python yang memiliki kemampuan untuk mengubah suatu string menjadi suara. Nantinya akan dipilih suara dengan aksen Indonesia untuk meningkatkan familiaritas terhadap lingkungan sekitar. Apabila tidak maka akan dilanjutkan untuk melakukan pendeteksian bahasa isyarat selanjutnya.
+
+\subsection{Integrasi Intel Next Unit Computing (NUC)}
+
+
+
+% \subsection{Integrasi Jetson Nano}
+
+% Sebelum dapat menggunakan Jetson Nano, terlebih dahulu mengunuh dan mengingstall NVIDIA JetPack SDK yang mencakup sistem operasi, \textit{library}, API, dan driver yang diperlukan. Proses ini melibatkan penggunaan aplikasi SDK Manager yang menyediakan antarmuka pengguna grafis untuk memudahkan penginstalan dan setup. Selanjutnya, konfigurasi perangkat keras Jetson Nano, termasuk menyediakan sumber daya listrik yang stabil, menghubungkan perangkat ke monitor melalui port HDMI, serta menyiapkan periferal lain seperti keyboard dan mouse. Untuk pengembangan yang melibatkan pengolahan citra atau video, kamera yang kompatibel juga perlu dihubungkan dan dikonfigurasi. Oleh karena Jetson Nano tidak memiliki port audio, maka digunakan USB dongle untuk dapat menyambungkan Jetson Nano dengan speaker. Kemudian dilakukan instalasi untuk setiap dependency atau \textit{library} yang dibutuhkan, seperti Python, Jupyter, TensorFlow, Keras, Pytorch, MediaPipe, Numpy, Maplotlib, dan \textit{library} lainnya. Untuk dapat menunjang performa dari Jetson Nano dalam menjalankan program, terkhususnya model penerjemah bahasa isyarat, dilakukan instalasi dan setup untuk CUDA (\textit{Compute Unified Device Architecture}) sehingga Jetson Nano dapat menggunakan GPU (\textit{Graphic Processing Unit}). 
+
+% Untuk melakukan deploy program pendeteksi bahasa isyarat pada Jetson Nano, pada model yang telah dihasilkan sebelumnya dilakukan optimasi dengan melakukan konversi menggunakan TensorRT dan kuantisasi. Hal ini dimaksudkan untuk mengoptimalkan performa model pada Jetson Nano. Kemudian program sistem penerjemah bahasa isyarat (dalam bentuk python executable) dapat ditransfer ke Jetson Nano dengan menggunakan Git. Program siap melakukan penerjemahan bahasa isyarat BISINDO.
+
+% \section{Urutan Pelaksanaan}
+
+% Adapun dalam pembuatan tugas akhir ini, berikut urutan pelaksanaan penelitian yang akan dilakukan oleh penulis:
+
+% \begin{figure}[H]
+%   \centering
+%   \caption{Flowchart Program Pembentukan Kalimat}
+%   \label{tbl:flowchartkalimat}
+
+%   \includegraphics[scale=0.6]{gambar/bab3-timeline-kerja.png}
+% \end{figure}
+
+% \section{Deskripsi Sistem}
+% \label{sec:deskripsisistem}
+
+% Sistem akan dibuat dengan \lipsum[1-2]
+
+% \section{Implementasi Alat
+%   \label{sec:implementasi alat}}
+
+% Alat diimplementasikan dengan \lipsum[1]
+
+% % Contoh pembuatan potongan kode
+% \begin{lstlisting}[
+%   language=C++,
+%   caption={Program halo dunia.},
+%   label={lst:halodunia}
+% ]
+% #include <iostream>
+
+% int main() {
+%     std::cout << "Halo Dunia!";
+%     return 0;
+% }
+% \end{lstlisting}
+
+% \lipsum[2-3]
+
+% % Contoh input potongan kode dari file
+% \lstinputlisting[
+%   language=Python,
+%   caption={Program perhitungan bilangan prima.},
+%   label={lst:bilanganprima}
+% ]{program/bilangan-prima.py}
+
+% \lipsum[4]
