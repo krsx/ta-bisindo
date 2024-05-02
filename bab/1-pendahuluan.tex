@@ -11,7 +11,7 @@ GERKATIN mencatat terdapat setidaknya 2,9 juta orang atau sekitar 1,25\% dari to
 
 Perkembangan teknologi saat ini telah menghasilkan berbagai inovasi yang dapat membantu manusia dalam menjalani kehidupan sehari – hari. \emph{Deep learning} adalah bagian dari ilmu \emph{machine learning} yang berbasis pada jaringan syarat tiruan dengan banyak hidden layers sehingga dapat menyelesaikan masalah komputasi yang kompleks dengan baik. LSTM (\emph{Long Short-Term Memory}) adalah salah satu arsitektur deep learning yang memiliki kemampuan untuk mengingat dan menyimpan informasi masa lampau, serta mempelajari suatu data yang bersifat sekuensial \parencite{sadli2020}. LSTM merupakan arsitektur \emph{deep learning yang} ideal untuk menerjemahkan bahasa isyarat, mengingat data bahasa isyarat bersifat sekuensial. Sebelumnya penggunaan LSTM dalam penelitian oleh Putri, et al., telah berhasil mengembangkan deteksi real-time bahasa isyarat Indonesia (BISINDO) pada 30 kelas kata isyarat dengan akurasi 65\% \parencite{putri2022}. Pada penelitian yang dilakukan oleh Suhartijo dan Aljabar, telah berhasil mengembangkan BISINDO (Bahasa Isyarat Indonesia) \emph{sign language recognition using CNN and LSTM} dengan akurasi sebesar 86\% pada 10 kelas isyarat yang diujikan dengan menggunakan LSTM \parencite{aljabar2020}. 
 
-Perkembangan teknologi juga melahirkan sebuah perangkat   
+% Perkembangan teknologi juga melahirkan inovasi perangkat komputasi bernama \emph{mini computer}. \emph{Mini computer} merupakan suatu perangkat. Mini computer salah satunya NUC. NUC kelebihannya apa 
 
 % Perkembangan teknologi juga melahirkan sebuah perangkat komputasi edge, yaitu \emph{Single Board Computer}. \emph{Single Board Computer} merupakan perangkat keluaran NVIDIA berukuran kecil dan didedikasikan untuk menjalankan lebih dari satu \emph{neural network} secara paralel. \emph{Single Board Computer} dapat menjadi solusi dalam mengimplementasikan model \emph{deep learning} secara lokal pada perangkat yang portabel dan hemat energi. \emph{Single Board Computer} yang dilengkapi dengan GPU (\emph{Graphic Processing Unit}) keluaran NVIDIA menyediakan library seperti CUDA, cuDNN, dan TensorRT yang dapat mengoptimalisasi dan memaksimalkan implementasi model deep learning dengan biaya yang lebih terjangkau jika dibandingkan dengan implementasi pada laptop ataupun komputer pada umumnya\parencite{nvidiaJetsonNano}. Namun, penggunaan \emph{Single Board Computer} masih minim digunakan, terkhususnya pada implementasi model \emph{deep learning} untuk pendeteksian pose, seperti penerjemahan bahasa isyarat.
 
@@ -32,7 +32,7 @@ Adapun tujuan dalam pembuatan tugas akhir ini adalah untuk mengembangkan sistem 
 \section{Batasan Masalah}
 \label{sec:batasanmasalah}
 
-Adapun dalam memfokuskan dalam menyelesaikan permasalahan dalam tugas akhir ini, penulis mengidentifikasi batasan – batasan masalah sebagai berikut:
+Adapun untuk memfokuskan untuk menyelesaikan permasalahan pada tugas akhir ini, penulis mengidentifikasi batasan - batasan masalah sebagai berikut:
 
 \begin{enumerate}[nolistsep]
 
@@ -63,30 +63,34 @@ Adapun manfaat yang didapat pada pembuatan tugas akhir ini adalah sebagai beriku
 
 \end{enumerate}
 
-% Dalam pembuatan laporan penelitian tugas akhir ini akan terbagi menjadi lima bagian bab yang meliputi:
+\section{Sistematika Penulisan}
+\label{sec:sistematikapenulisan
+}
 
-% \begin{enumerate}[nolistsep]
+Dalam pembuatan laporan penelitian tugas akhir ini akan terbagi menjadi lima bagian bab yang meliputi:
 
-%   \item \textbf{BAB I Pendahuluan} \\     
-%       Bab ini berisi penjelasan mengenai latar belakang yang mengarah pada permasalahan yang akan diangkat serta solusi yang diberikan. Selain itu terdapat pula tujuan dari penelitian serta batasan masalah dari cakupan yang akan dikerjakan.
-%         \vspace{2ex}
+\begin{enumerate}[nolistsep]
 
-%   \item \textbf{BAB II Tinjauan Pustaka} \\
-%       Bab ini berisi penelitian terdahulu dengan topik yang berhubungan dengan penelitian yang akan dilakukan. Selain itu, pada bab ini dijelaskan juga mengenai teori - teori yang akan digunakan untuk membantu pengerjaan penelitian.
+  \item \textbf{BAB I Pendahuluan} \\     
+      Bab ini berisi penjelasan mengenai latar belakang yang mengarah pada permasalahan yang akan diangkat serta solusi yang diberikan. Selain itu terdapat pula tujuan dari penelitian serta batasan masalah dari cakupan yang akan dikerjakan.
+        \vspace{2ex}
 
-%         \vspace{2ex}
+  \item \textbf{BAB II Tinjauan Pustaka} \\
+      Bab ini berisi penelitian terdahulu dengan topik yang berhubungan dengan penelitian yang akan dilakukan. Selain itu, pada bab ini dijelaskan juga mengenai teori - teori yang akan digunakan untuk membantu pengerjaan penelitian.
 
-%   \item \textbf{BAB III Desain dan Implementasi Sistem} \\
-%       Bab ini berisi penjelasan mengenai rancangan dan metodologi penelitian secara sistematis serta pengimplementasiannya dalam setiap metode sehingga mendapatkan hasil dari penelitian.
+        \vspace{2ex}
 
-%         \vspace{2ex}
+  \item \textbf{BAB III Desain dan Implementasi Sistem} \\
+      Bab ini berisi penjelasan mengenai rancangan dan metodologi penelitian secara sistematis serta pengimplementasiannya dalam setiap metode sehingga mendapatkan hasil dari penelitian.
 
-%   \item \textbf{BAB IV Pengujian dan Analisa} \\
-%       Bab ini berisi mengenai hasil penelitian yang telah didapatkan dari metodologi yang telah dilakukan. Kemudian akan dijelaskan juga mengenai pengujian yang akan dilakukan dalam keadaan yang telah ditentukan.
+        \vspace{2ex}
 
-%         \vspace{2ex}
+  \item \textbf{BAB IV Pengujian dan Analisa} \\
+      Bab ini berisi mengenai hasil penelitian yang telah didapatkan dari metodologi yang telah dilakukan. Kemudian akan dijelaskan juga mengenai pengujian yang akan dilakukan dalam keadaan yang telah ditentukan.
 
-%   \item \textbf{BAB V Penutup} \\
-%       Bab ini berisi kesimpulan yang didapatkan dari hasil penelitian berdasarkan permasalahan dan tujuan di awal. Selain itu, terdapat juga saran untuk para peneliti yang ingin mengembangkan penelitian ini.
+        \vspace{2ex}
 
-% \end{enumerate}
+  \item \textbf{BAB V Penutup} \\
+      Bab ini berisi kesimpulan yang didapatkan dari hasil penelitian berdasarkan permasalahan dan tujuan di awal. Selain itu, terdapat juga saran untuk para peneliti yang ingin mengembangkan penelitian ini.
+
+\end{enumerate}

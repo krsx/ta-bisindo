@@ -31,10 +31,15 @@
 \usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{lipsum}
+\usepackage{caption}
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{wrapfig}
 \usepackage{float}
+
+\captionsetup[longtable]{
+  width=.9\textwidth, % Adjust the width to .9 of the text width or as needed
+}
 
 % Definisi untuk "Hati ini sengaja dikosongkan"
 \patchcmd{\cleardoublepage}{\hbox{}}{
