@@ -19,17 +19,21 @@ Perkembangan teknologi juga melahirkan inovasi berupa perangkat bernama \emph{mi
 
 % Diperlukan adanya suatu sistem penerjemah dari bahasa isyarat ke suara sebagai salah satu solusi dalam mengatasi masalah komunikasi antara penyandang tunarungu dengan masyarakat umum, demi meningkatkan kualitas hidup tunarungu di Indonesia. Sistem penerjemah yang ada juga masih belum memanfaatkan perangkat \emph{Single Board Computer} dan hanya diimplementasikan pada perangkat laptop / komputer. Oleh karena itu, melalui tugas akhir ini penulis mengusulkan metode penerjemahan Bahasa Isyarat Indonesia (BISINDO) ke media suara menggunakan LSTM berbasis \emph{Single Board Computer}. BISNDO dipilih sebagai bahasa isyarat yang akan diterjemahkan demi mendukung GERTAKIN dalam mengupayakan BISINDO sebagai bahasa isyarat resmi dan utama di Indonesia. Implementasi akhir sistem akan dilakukan pada \emph{Single Board Computer} sebagai salah satu solusi perangkat komputasi edge yang portable dan hemat energi.
 
-Berdasarkan pada latar belakang yang telah dipaparkan, dibutuhkan suatu sistem penerjemah bahasa isyarat Indonesia (BISINDO) ke media suara sebagai salah satu solusi dalam mengatasi masalah komunikasi antar penyandang tuna rungu dengan masyarakat umum dan mendukung GERKATIN dalam menggantikan bahasa isyarat nasional. Sistem penerjemah saat ini masih diimplementasikan secara pada laptop saja sehingga Intel \emph{Next Unit Computing} menjadi perangkat yang akan diimplementasikan sistem penerjemah bahasa isyarat sebagai upaya awal dalam menciptakan sistem yang dapat dijangkau oleh masyarakat luas. Oleh karena itu, melalui tugas akhir ini penulis mengusulkan penelitian berjudul "Penerjemah Bahasa Isyarat Indonesia (BISINDO) ke Media Suara Menggunakan \emph{Long Short-Term Memory} (LSTM) Berbasis \emph{Intel Next Unit Computing} (NUC)".    
+Berdasarkan pada latar belakang yang telah dipaparkan, dibutuhkan suatu sistem penerjemah bahasa isyarat Indonesia (BISINDO) ke media suara sebagai salah satu solusi dalam mengatasi masalah komunikasi antar penyandang tuna rungu dengan masyarakat umum dan mendukung GERKATIN dalam menggantikan bahasa isyarat nasional. Sistem penerjemah saat ini masih diimplementasikan secara pada laptop saja sehingga Intel \emph{Next Unit Computing} menjadi perangkat yang akan diimplementasikan sistem penerjemah bahasa isyarat sebagai upaya awal dalam menciptakan sistem penerjemah yang dapat dijangkau oleh masyarakat luas. Oleh karena itu, melalui tugas akhir ini penulis mengusulkan penelitian berjudul "Penerjemah Bahasa Isyarat Indonesia (BISINDO) ke Media Suara Menggunakan \emph{Long Short-Term Memory} (LSTM) Berbasis \emph{Intel Next Unit Computing} (NUC)".    
 
 \section{Permasalahan}
 \label{sec:permasalahan}
 
-Berdasarkan latar belakang permasalahan yang telah diuarikan diatas, dapat diketahui bahwa penerjemah Bahasa Isyarat Indonesia (BISINDO) yang menggunakan arsitektur \emph{Long Short-Term Memory} (LSTM) saat ini masih menunjukkan akurasi yang kurang optimal. Output dari sistem penerjemah yang ada saat ini masih terbatas pada tampilan teks untuk satu kata saja. Pendekatan ini terasa kurang alami dan dapat menyulitkan penyandang tunarungu dalam berinteraksi dengan masyarakat sekitar. Implementasi sistem penerjemah bahasa isyarat saat ini terbatas pada penggunaan laptop atau komputer saja dan belum memanfaatkan sepenuhnya kemampuan \emph{Single Board Computer} yang lebih efisien, terjangkau, dan memiliki mobilitas tinggi.
+% Berdasarkan latar belakang permasalahan yang telah diuarikan diatas, dapat diketahui bahwa penerjemah Bahasa Isyarat Indonesia (BISINDO) yang menggunakan arsitektur \emph{Long Short-Term Memory} (LSTM) saat ini masih menunjukkan akurasi yang kurang optimal. Output dari sistem penerjemah yang ada saat ini masih terbatas pada tampilan teks untuk satu kata saja. Pendekatan ini terasa kurang alami dan dapat menyulitkan penyandang tunarungu dalam berinteraksi dengan masyarakat sekitar. Implementasi sistem penerjemah bahasa isyarat saat ini terbatas pada penggunaan laptop atau komputer saja dan belum memanfaatkan sepenuhnya kemampuan \emph{Single Board Computer} yang lebih efisien, terjangkau, dan memiliki mobilitas tinggi.
+
+Berdasarkan latar belakang yang telah diuraikan sebelumnya, penerjemah bahasa isyarat Indonesia (BISINDO) menggunakan \emph{Long Short-Term Memory} (LSTM) saat ini masih menujukkan akurasi yang kurang optimal. Adapun output dari sistem yang ada hanya terbatas berupa tampilan teks untuk satu kosakata saja. Pendekatan ini terasa kurang alami dan menyulitkan penyandang tunarungu dalam lebih bebas berinteraksi dengan masyarakat sekitar. Implementasi sistem saat ini masih terbatas secara \emph{local} (komputer atau laptop sang pembuat) saja. Belum adanya upaya dalam membuat sistem penerjemah bahasa isyarat yang inklusif melalui implementasi pada Intel \emph{Next Unit Computing} (NUC).    
 
 \section{Tujuan}
 \label{sec:Tujuan}
 
-Adapun tujuan dalam pembuatan tugas akhir ini adalah untuk mengembangkan sistem penerjemah Bahasa isyarat Indonesia (BISINDO) menggunakan \emph{Long Short-Term Memory} (LSTM) yang dapat menerjemahkan dengan akurasi yang baik dengan menghasilkan output berupa serangkaian kata yang dapat disusun menjadi kalimat dan selanjutnya diubah menjadi suara dengan implementasi akhir sistem pada perangkat \emph{Single Board Computer}. Adanya sistem ini diharapkan dapat membantu dalam mempermudah komunikasi antara penyandang tunarungu dengan masyarakat umum dan memaksimalkan perangkat \emph{Single Board Computer} dalam implementasi model \emph{deep learning}.  
+% Adapun tujuan dalam pembuatan tugas akhir ini adalah untuk mengembangkan sistem penerjemah Bahasa isyarat Indonesia (BISINDO) menggunakan \emph{Long Short-Term Memory} (LSTM) yang dapat menerjemahkan dengan akurasi yang baik dengan menghasilkan output berupa serangkaian kata yang dapat disusun menjadi kalimat dan selanjutnya diubah menjadi suara dengan implementasi akhir sistem pada perangkat \emph{Single Board Computer}. Adanya sistem ini diharapkan dapat membantu dalam mempermudah komunikasi antara penyandang tunarungu dengan masyarakat umum dan memaksimalkan perangkat \emph{Single Board Computer} dalam implementasi model \emph{deep learning}.  
+
+Tujuan dari pelaksanaan tugas akhir ini adalah untuk mengembangkan sistem penerjemah bahasa isyarat Indonesia (BISINDO) menggunakan \emph{Long Short-Term Memory} (LSTM) dengan kemampuan untuk menerjemahkan gerakan isyarat dengan akurasi yang baik. Sistem dapat menghasilkan output berupa serangkaian kata yang dapat disusun menjadi kalimat dan diubah menjadi media suara. Implementasi akhir sistem akan dilakukan pada Intel \emph{Next Unit Computing} (NUC) sebagai upaya dalam menciptakan sistem yang inklusif dan dapat dijangkau masyarakat luas.
 
 \newpage
 
@@ -42,13 +46,13 @@ Adapun untuk memfokuskan untuk menyelesaikan permasalahan pada tugas akhir ini, 
 
   \item Bahasa isyarat yang akan digunakan adalah Bahasa Isyarat Indonesia (BISINDO).
 
-  \item Konteks bahasa isyarat yang akan diterjemahkan adalah 12 kata dalam bahasa isyarat yang kemudian dapat diubah menjadi kalimat tanya yang umum digunakan sehari – hari.
+  \item Konteks bahasa isyarat yang akan diterjemahkan adalah 5 kata dalam bahasa isyarat yang kemudian dapat diubah menjadi kalimat - kalimat yang umum digunakan dalam kehidupan sehari - hari.
 
-  \item Terdapat 4 buah isyarat tambahan di luar BISINDO untuk menunjukkan isyarat mulai, keadaan stand by, menghapus kata yang telah diterjemahkan, dan menyuarakan kalimat yang telah disusun. Isyarat ini digunakan untuk memudahkan dalam pengoperasian sistem secara keseluruhan.
+  \item Terdapat 3 buah isyarat tambahan di luar BISINDO, yaitu menandakan keadaan \emph{standby}, menghapus kata yang telah diterjemahkan, dan menyuarakan kalimat yang telah disusun. Isyarat ini digunakan untuk memudahkan dalam pengoperasian sistem secara keseluruhan.
 
   \item Arsitektur yang akan digunakan adalah LSTM (\emph{Long Short-Term Memory}).
   
-  \item Model penerjemah bahasa isyarat akan diimplementasikan pada \emph{Single Board Computer} Developer seri B01.
+  \item Model penerjemah bahasa isyarat akan diimplementasikan pada Intel \emph{Next Unit Computing} (NUC)
 \end{enumerate}
 
 \section{Manfaat}
@@ -59,11 +63,11 @@ Adapun manfaat yang didapat pada pelaksanaan tugas akhir ini adalah sebagai beri
 \begin{enumerate}[nolistsep]
 
   \item \textbf{Bagi masyarakat} \\     
-  Adanya sistem penerjemah Bahasa Isyarat Indonesia (BISINDO) ke media suara menggunakan LSTM berbasis \emph{Single Board Computer} dapat menjadi suatu inovasi yang dapat memudahkan komunikasi tunarungu dengan khalayak umum. Sistem ini juga diharapkan menjadi salah satu pedoman inovasi lanjutan pada topik yang sama atau beririsan.
+  Adanya sistem penerjemah Bahasa Isyarat Indonesia (BISINDO) ke media suara menggunakan LSTM berbasis \emph{Single Board Computer} dapat menjadi suatu inovasi yang dapat memudahkan komunikasi tunarungu dengan khalayak umum. Sistem ini juga diharapkan menjadi titik awal pengembangan sistem penerjemah yang lebih inklusif lagi dan menjadi salah satu pedoman inovasi lanjutan pada topik yang sama atau beririsan.
         \vspace{2ex}
 
   \item \textbf{Bagi penulis} \\
-  Pembuatan tugas akhir ini memberikan banyak manfaat bagi penulis, yaitu dapat mengasah kemampuan dalam berinovasi untuk memecahkan permasalahan nyata yang dihapadi oleh masyarakat, pola pikir yang kritis, login, dan sistematis, serta dapat memudahkan komunikasi saudari kandung penulis yang juga penyandang tunarungu dalam berkomunikasi dengan lingkungan sekitar.
+  Pembuatan tugas akhir ini memberikan banyak manfaat bagi penulis, yaitu dapat mengasah kemampuan dalam berinovasi untuk memecahkan permasalahan nyata yang dihapadi oleh masyarakat, pola pikir yang kritis, logis, dan sistematis, serta dapat memudahkan komunikasi saudari kandung penulis yang juga penyandang tunarungu dalam berkomunikasi dengan lingkungan sekitar.
 
 \end{enumerate}
 
@@ -90,11 +94,11 @@ Dalam pembuatan laporan penelitian tugas akhir ini akan terbagi menjadi lima bag
         \vspace{2ex}
 
   \item \textbf{BAB IV Pengujian dan Analisa} \\
-      Bab ini berisi mengenai hasil penelitian yang telah didapatkan dari metodologi yang telah dilakukan. Kemudian akan dijelaskan juga mengenai pengujian yang akan dilakukan dalam keadaan yang telah ditentukan.
+      Bab ini berisi mengenai hasil penelitian yang telah didapatkan dari metodologi yang telah dilakukan. Kemudian akan dijelaskan juga mengenai pengujian yang akan dilakukan dalam keadaan yang telah ditentukan beserta dengan pembahasan akan hasil pengujian dan fenomena yang terjadi.
 
         \vspace{2ex}
 
   \item \textbf{BAB V Penutup} \\
-      Bab ini berisi kesimpulan yang didapatkan dari hasil penelitian berdasarkan permasalahan dan tujuan di awal. Selain itu, terdapat juga saran untuk para peneliti yang ingin mengembangkan penelitian ini.
+      Bab ini berisi kesimpulan yang didapatkan dari hasil penelitian berdasarkan permasalahan dan tujuan di awal. Selain itu, terdapat juga saran untuk para peneliti yang ingin mengembangkan penelitian dengan topik yang sama ataupun beririsan.
 
 \end{enumerate}
