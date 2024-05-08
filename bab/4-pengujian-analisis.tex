@@ -21,7 +21,7 @@ Pengujian ini akan dilakukan dengan menggunakan Intel NUC 11 Performance Kit yan
 \section{Pengujian Bentuk Model}
 \label{sec:analisismodel}
 
-Pengujian bentuk model penerjemah bahasa isyarat Indonesia (BISINDO) dilakukan dengan melakukan perubahan struktur dari \emph{layer} yang digunakan, baik dari segi pemilihan tipe \emph{layer}, fungsi \emph{activation}, serta jumlah unit aktivasi yang digunakan. Pengujian ini didasari dari struktur model yang telah dibahas pada sub bab \ref{sec:metodologipose}. Serangkaian model yang diuji akan dilihat bagaimana performa hasil dari \emph{training} model, melalui grafik \emph{accuracy} dan \emph{loss} yang dihasilkan. Digunakan \emph{confusion matrix} untuk mengamati bagaimana hasil dari pengujian model terhadap serangkaian data gerakan bahasa isyarat dengan membandingkan hasil prediksi model dengan data aktual yang ada untuk masing - masing kosakata atau \emph{class} yang ada. Berdasarkan \emph{confusion matrix} ini juga dapat dihasilkan matrix evaluasi berupa \emph{accuracy}, \emph{precision}, \emph{recall}, dan \emph{F1-score}. Seiap model yang diuji menggunakan partisi data \emph{training} dan validasi yang sama, yaitu dengan perbandingan 70:30. Hal ini menunjukkan bahwa dari keseluruhan data yang digunakan, akan terdapat 70\% data \emph{training} dan 30\% data validasi. Untuk setiap kosakata yang digunakan sesuai dengan yang telah dijelaskan pada sub bab\ref{sec:metodologidataset}. Keseluruhan model akan dilatih sebanyak 12 \emph{epoch}. Pengujian ini bertujuan untuk melihat bagaimana perubahan struktur dari \emph{layer} akan berpengaruh pada performa model penerjemah yang dihasilkan.
+Pengujian bentuk model penerjemah bahasa isyarat Indonesia (BISINDO) dilakukan dengan melakukan perubahan struktur dari \emph{layer} yang digunakan, baik dari segi pemilihan tipe \emph{layer}, fungsi \emph{activation}, serta jumlah unit aktivasi yang digunakan. Pengujian ini didasari dari struktur model yang telah dibahas pada sub bab \ref{sec:metodologipose}. Serangkaian model yang diuji akan dilihat bagaimana performa hasil dari \emph{training} model, melalui grafik \emph{accuracy} dan \emph{loss} yang dihasilkan. Digunakan \emph{confusion matrix} untuk mengamati bagaimana hasil dari pengujian model terhadap serangkaian data gerakan bahasa isyarat dengan membandingkan hasil prediksi model dengan data aktual yang ada untuk masing - masing kosakata atau \emph{class} yang ada. Berdasarkan \emph{confusion matrix} ini juga dapat dihasilkan matrix evaluasi berupa \emph{accuracy}, \emph{precision}, \emph{recall}, dan \emph{F1-score}. Setiap model yang diuji menggunakan partisi data \emph{training} dan validasi yang sama, yaitu dengan perbandingan 70:30. Hal ini menunjukkan bahwa dari keseluruhan data yang digunakan, akan terdapat 70\% data \emph{training} dan 30\% data validasi. Untuk setiap kosakata yang digunakan sesuai dengan yang telah dijelaskan pada sub bab \ref{sec:metodologidataset}. Keseluruhan model akan dilatih sebanyak 12 \emph{epoch}. Pengujian ini bertujuan untuk melihat bagaimana perubahan struktur dari \emph{layer} akan berpengaruh pada performa model penerjemah yang dihasilkan.
 
 \subsection{Model Pertama}
 \label{sec:analisismodel1}
@@ -198,6 +198,7 @@ Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dat
   \label{fig:model3-cf}
 \end{figure}
 
+\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Matrix Evaluasi Model 3}
   \label{tb:model3stat}                                   \\
@@ -224,6 +225,7 @@ Pada pengujian kondisi cahaya ini dilakukan untuk memahami bagaimana performa mo
 
 Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian ini adalah model pada bagian \ref{sec:analisismodel3} karena merupakan model yang menghasilkan klasifikasi yang terbaik jika dibandingkan dengan model lainnya. Untuk setiap intensitas cahaya akan dilakukan pengujian sebanyak tiga kali dengan jarak terhadap kamera sebesar 300 cm. Pada setiap pengujian akan dicari hasil klasifikasi model, waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat berdasarkan data koordinat yang diberikan(\emph{processing time}), dan waktu total yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}).  
 
+\newpage
 \begin{longtable}{|c|c|}
   \caption{Variasi Kondisi Cahaya}
   \label{tb:kondisicahaya}                                   \\
@@ -239,6 +241,7 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \hline
 \end{longtable}
 
+\newpage
 \subsection{Pengujian Model di Kondisi Cahaya 35 lux}
 \label{sec:analisiscahaya1}
 
@@ -327,6 +330,7 @@ Pada pengujian di intensitas cahaya 35 lux, didapat bahwa pengguna tidak dapat m
   \hline
 \end{longtable}
 
+\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Kedua Model di Kondisi Cahaya 80 lux}
   \label{tb:prediksiremang2}                                   \\
@@ -369,6 +373,7 @@ Berdasarkan tiga pengujian yang telah dilakukan, didapatkan bahwa hampir keselur
 
 Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat (\emph{processing time}) adalah 0.091 detik dan rata - rata waktu yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}) adalah 2.982  detik. Dapat dilihat bahwa terdapat peningkatan \emph{processing time} dan \emph{complete time} seiring dengan peningkatan intensitas cahaya ruangan, dimana kemampuan kamera dalam menangkap gerakan bahasa isyarat lebih mudah dan jelas lagi. Hal ini juga berkaitan dengan kemampuan program dalam mengekstrak koordinat yang dibutuhkan untuk menghasilkan klasifikasi, serta lama waktu yang dibutuhkan kamera dalam menangkap tiap \emph{frame} yang nantinya digunakan untuk mendapatkan data koordinat menjadi lebih cepat.
 
+\newpage
 \subsection{Pengujian Model di Kondisi Cahaya 125 lux}
 \label{sec:analisiscahaya3}
 
@@ -440,6 +445,7 @@ Pada pengujian kondisi jarak ini dilakukan untuk memahami bagaimana performa mod
 
 Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian ini adalah model pada bagian \ref{sec:analisismodel3} karena merupakan model yang menghasilkan klasifikasi yang terbaik jika dibandingkan dengan model lainnya. Untuk setiap variasi jarak akan dilakukan pengujian sebanyak tiga kali dengan kondisi ruangan yang memiliki intensitas cahaya yang terang (berkisar pada 125 lux). Pada setiap pengujian akan dicari hasil klasifikasi model, waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat berdasarkan data koordinat yang diberikan(\emph{processing time}), dan waktu total yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}).  
 
+\newpage
 \begin{longtable}{|c|c|}
   \caption{Variasi Kondisi Jarak}
   \label{tb:kondisijarak}                                   \\
@@ -455,6 +461,7 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \hline
 \end{longtable}
 
+\newpage
 \subsection{Pengujian Jarak 180 cm}
 \label{sec:analisisjarak1}
 
@@ -543,6 +550,7 @@ Pada pengujian di kondisi jarak 180 cm ini, perlu diperhatikan bahwa pengguna ha
   \hline
 \end{longtable}
 
+\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Kedua Model di Kondisi Jarak 240 cm}
   \label{tb:prediksitengah2}                                   \\
@@ -585,6 +593,7 @@ Berdasarkan tiga pengujian yang telah dilakukan, didapatkan bahwa hampir keselur
 
 Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat (\emph{processing time}) adalah 0.099 detik dan rata - rata waktu yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}) adalah 2.506 detik. Apabila dibandingkan dengan pengujian sebelumnya (kondisi jarak 180 cm). Terdapat peningkatan pada nilai \emph{processing time} seiring dengan peningkatan jarak kamera dengan pengguna yaitu sebesar 0.002 detik. Sedangkan untuk nilai \emph{complete time} mengalami penurunan seiring dengan peningkatan jarak kamera dengan pengguna, yaitu sebesar 0.154 detik. Hal ini dapat disebabkan oleh adanya pengaruh antara jarak pengguna dengan kamera terhadap bagaimana beban kerja kamera dalam menangkap tiap \emph{frame}.
 
+\newpage
 \subsection{Pengujian Jarak 300 cm}
 \label{sec:analisisjarak3}
 
@@ -658,6 +667,7 @@ Pada pengujian dengan menggunakan subjek yang berbeda ini dilakukan untuk memaha
 
 Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian ini adalah model pada bagian \ref{sec:analisismodel3} karena merupakan model yang menghasilkan klasifikasi yang terbaik jika dibandingkan dengan model lainnya. Untuk setiap intensitas cahaya akan dilakukan pengujian sebanyak tiga kali dengan jarak terhadap kamera sebesar 300 cm dan intensitas cahaya yang berkisar pada nilai 125 lux atau kondisi ruangan terang. Pada setiap pengujian akan dicari hasil klasifikasi model, waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat berdasarkan data koordinat yang diberikan(\emph{processing time}), dan waktu total yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}).  
 
+\newpage
 \begin{longtable}{|c|c|}
   \caption{Variasi Subjek Berbeda}
   \label{tb:kondisisubjek}                                   \\
@@ -671,6 +681,7 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \hline
 \end{longtable}
 
+\newpage
 \subsection{Pengujian Subjek Perempuan}
 \label{sec:analisisperempuan}
 
@@ -776,6 +787,7 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \hline
 \end{longtable}
 
+\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Ketiga Model di Subjek Berbeda Laki - Laki}
   \label{tb:prediksilaki3}                                   \\
