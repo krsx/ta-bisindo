@@ -36,7 +36,7 @@ Model pertama menggunakan 2 buah \emph{layer} LSTM. \emph{Layer} LSTM pertama me
   \label{fig:model1-struktur}
 \end{figure}
 
-Berdasarkan dari \emph{training} yang telah dilakukan didapatkan bahwa model menghasilkan akurasi \emph{training} bernilai 0.89 dan akurasi validasi bernilai 0.71. Data ini menunjukkan bahwa model memiliki akurasi yang cukup baik. Untuk nilai \emph{loss training} bernilai cukup tinggi, yaitu bernilai 2.81 dan \emph{loss} validasi bernilai 0.76 yang cukup rendanh jika dibandingkan dengan nilai \emph{loss training}. Nilai dari \emph{loss training} terlihat melonjak di \emph{epoch} terakhir, yaitu pada \emph{epoch} 12. Hal ini selaras dengan penurunan \emph{accuracy} model setelah \emph{epoch} 10. Grafik akurasi dan \emph{loss} dapat dilihat pada gambar \ref{fig:model1-train-acc} dan gambar \ref{fig:model1-train-loss}.
+Berdasarkan dari \emph{training} yang telah dilakukan didapatkan bahwa model menghasilkan akurasi validasi bernilai 0.89 dan akurasi \emph{training} bernilai 0.71. Data ini menunjukkan bahwa model memiliki akurasi yang cukup baik. Untuk nilai \emph{loss training} bernilai cukup tinggi, yaitu bernilai 2.81 dan \emph{loss} validasi bernilai 0.76 yang cukup rendanh jika dibandingkan dengan nilai \emph{loss training}. Nilai dari \emph{loss training} terlihat melonjak di \emph{epoch} terakhir, yaitu pada \emph{epoch} 12. Hal ini selaras dengan penurunan \emph{accuracy} model setelah \emph{epoch} 10. Grafik akurasi dan \emph{loss} dapat dilihat pada gambar \ref{fig:model1-train-acc} dan gambar \ref{fig:model1-train-loss}.
 
 \begin{figure}[H]
   \centering
@@ -218,6 +218,24 @@ Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dat
   \hline
 \end{longtable}
 
+\subsection{Rangkuman Pengujian Bentuk Model}
+\label{sec:analisismodelseluruh}
+
+\begin{longtable}{|c|c|c|c|}
+  \caption{Rangkuman Pengujian Bentuk Model}
+  \label{tb:evaluasiModel}                                   \\
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{Model} & \textbf{Akurasi} & \emph{\textbf{Avg. Precision}} & \emph{\textbf{Avg. F1-Score}} \\
+  \hline
+  Model 1 & 0.85 & 0.85 & 0.83 \\
+  Model 2 & 0.94 & 0.94 & 0.94 \\
+  Model 3 & 0.99 & 0.99 & 0.99 \\
+  \hline
+\end{longtable}
+
+Secara keseluruhan, berdasarkan tabel \ref{tb:evaluasiModel} bahwa seiring denagn peningkatan kompleksitas dari suatu model selaras dengan peningkatan performa dari model itu sendiri. Hal ini dapat ditunjukkan dengan peningkatan akurasi dari model 1, yaitu 0.85 atau 85\% menjadi pada model 3, yaitu 0.99 atau 99\%. Nilai \emph{average precision} dan \emph{average F1-Score} juga meningkat seiring dengan peningkatan stuktur dari model. Penggunaan \emph{layer TimeDistributed} dan diikuti 2 \emph{layer} LSTM menghasilkan model dengan performa terbaik.
+
 \section{Pengujian Kondisi Cahaya}
 \label{sec:analisiscahaya}
 
@@ -252,15 +270,15 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09208822250366211                           & 2.8735828399658203                                  \\
-  Tolong            & Tolong                        & 0.09208822250366211                           & 2.9096102714538574                                  \\
-  Nama              & Nama                        & 0.08932256698608398                           & 3.3274698257446294                                  \\
-  Saya              & Saya                        & 0.09866833686828613                           & 2.8822731971740723                                  \\
-  Siapa              & Siapa                        & 0.08973073959350586                           & 2.8529834747314453                                  \\
-  Rumah             & \textcolor{red}{Delete}                        & 0.09612202644348145                           & 2.8643417358398438                                  \\
-  Delete            & Delete                        & 0.09255480766296387                           & 2.824845314025879                                  \\
-  Standby           & Standby                        & 0.09247112274169922                           & 2.8762435913085938                                  \\
-  Translate         & Translate                        & 0.09525346755981445                           & 2.9262471199035645                                  \\
+  Maaf              & Maaf                          & 0.09208822250366211 detik                           & 2.8735828399658203 detik                                  \\
+  Tolong            & Tolong                        & 0.09197822450361212 detik                           & 2.9096102714538574 detik                                  \\
+  Nama              & Nama                          & 0.08932256698608398 detik                           & 3.3274698257446294 detik                                  \\
+  Saya              & Saya                          & 0.09866833686828613 detik                           & 2.8822731971740723 detik                                  \\
+  Siapa             & Siapa                         & 0.08973073959350586 detik                           & 2.8529834747314453 detik                                  \\
+  Rumah             & \textcolor{red}{Delete}       & 0.09612202644348145 detik                           & 2.8643417358398438 detik                                  \\
+  Delete            & Delete                        & 0.09255480766296387 detik                           & 2.824845314025879 detik                                 \\
+  Standby           & Standby                       & 0.09247112274169922 detik                           & 2.8762435913085938 detik                                  \\
+  Translate         & Translate                     & 0.09525346755981445 detik                           & 2.9262471199035645 detik                                  \\
   \hline
 \end{longtable}
 
@@ -271,15 +289,15 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}} \\
   \hline
-  Maaf              & Maaf                        & 0.10043215751647949                           & 3.328549861907959                                  \\
-  Tolong            & Tolong                        & 0.0972287654876709                           & 3.3190798759460445                                  \\
-  Nama              & \textcolor{red}{Standby}                        & 0.08973073959350586                           & 2.914302349090576                                  \\
-  Saya              & Saya                        & 0.1007227897644043                           & 2.789583206176758                                  \\
-  Siapa              & Siapa                        & 0.08973073959350586                           & 3.4017491340637203                                  \\
-  Rumah             & Rumah                        & 0.10046267509460449                           & 2.94283390045166                                  \\
-  Delete            & Delete                        & 0.09255480766296387                           & 2.9163265228271484                                  \\
-  Standby           & Standby                        & 0.09181642532348633                           & 2.8268051147460938                                  \\
-  Translate         & Translate                        & 0.08920478820800781                           & 3.3912491798400874                                  \\
+  Maaf              & Maaf                            & 0.10043215751647949 detik                           & 3.328549861907959 detik                                 \\
+  Tolong            & Tolong                          & 0.0972287654876709 detik                            & 3.3190798759460445 detik                                  \\
+  Nama              & \textcolor{red}{Standby}        & 0.08973073959350586 detik                           & 2.914302349090576 detik                                 \\
+  Saya              & Saya                            & 0.1007227897644043 detik                            & 2.789583206176758 detik                                 \\
+  Siapa              & Siapa                          & 0.08973073959350586 detik                           & 3.4017491340637203 detik                                  \\
+  Rumah             & Rumah                           & 0.10046267509460449 detik                           & 2.94283390045166 detik                                \\
+  Delete            & Delete                          & 0.09255480766296387 detik                           & 2.9163265228271484 detik                                  \\
+  Standby           & Standby                         & 0.09181642532348633 detik                           & 2.8268051147460938 detik                                  \\
+  Translate         & Translate                       & 0.08920478820800781 detik                           & 3.3912491798400874 detik                                  \\
   \hline
 \end{longtable}
 
@@ -290,15 +308,15 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09208822250366211                           & 2.9158973693847656                                  \\
-  Tolong            & Tolong                        & 0.0972287654876709                           & 3.0014920234680176                                  \\
-  Nama              & Nama                        & 0.09724950790405273                           & 2.8235292434692383                                  \\
-  Saya              & Saya                        & 0.08916234970092773                           & 2.9606938362121578                                  \\
-  Siapa              & Siapa                        & 0.08973073959350586                           & 2.8408455848693848                                  \\
-  Rumah             & \textcolor{red}{Delete}                        & 0.10066267509460449                           & 3.36672306060791                                  \\
-  Delete            & Delete                        & 0.09255480766296387                           & 3.4308242797851562                                  \\
-  Standby           & Standby                        & 0.09866833686828613                           & 3.3450722694396973                                  \\
-  Translate         & Translate                        & 0.08920478820800781                           & 2.830524444580078                                  \\
+  Maaf              & Maaf                          & 0.09208822250366211 detik                           & 2.9158973693847656 detik                                  \\
+  Tolong            & Tolong                        & 0.0972287654876709 detik                            & 3.0014920234680176 detik                                  \\
+  Nama              & Nama                          & 0.09724950790405273 detik                           & 2.8235292434692383 detik                                  \\
+  Saya              & Saya                          & 0.08916234970092773 detik                           & 2.9606938362121578 detik                                  \\
+  Siapa             & Siapa                         & 0.08973073959350586 detik                           & 2.8408455848693848 detik                                  \\
+  Rumah             & \textcolor{red}{Delete}       & 0.10066267509460449 detik                           & 3.36672306060791 detik                                \\
+  Delete            & Delete                        & 0.09255480766296387 detik                           & 3.4308242797851562 detik                                  \\
+  Standby           & Standby                       & 0.09866833686828613 detik                           & 3.3450722694396973 detik                                  \\
+  Translate         & Translate                     & 0.08920478820800781 detik                           & 2.830524444580078 detik                                 \\
   \hline
 \end{longtable}
 
@@ -318,15 +336,15 @@ Pada pengujian di intensitas cahaya 35 lux, didapat bahwa pengguna tidak dapat m
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09171247482299805                           & 2.749907970428467                                  \\
-  Tolong            & Tolong                        & 0.09063005447387695                           & 3.3760499954223637                                  \\
-  Nama              & Nama                        & 0.09208822250366211                           & 2.930173873901367                                  \\
-  Saya              & Saya                        & 0.09037542343139648                           & 2.723050117492676                                  \\
-  Siapa              & Siapa                        & 0.09206461906433105                           & 2.848784923553467                                  \\
-  Rumah             & Rumah                        & 0.09352707862854004                           & 2.8643417358398438                                  \\
-  Delete            & Delete                        & 0.0890190601348877                            & 2.871215343475342                                  \\
-  Standby           & Standby                        & 0.08996152877807617                           & 3.3450722694396973                                  \\
-  Translate         & Translate                        & 0.08868694305419922                           & 3.3266687393188477                                  \\
+  Maaf              & Maaf                         & 0.09171247482299805 detik                           & 2.749907970428467 detik                                  \\
+  Tolong            & Tolong                       & 0.09063005447387695 detik                           & 3.3760499954223637 detik                                   \\
+  Nama              & Nama                         & 0.09208822250366211 detik                           & 2.930173873901367 detik                                  \\
+  Saya              & Saya                         & 0.09037542343139648 detik                           & 2.723050117492676 detik                                  \\
+  Siapa             & Siapa                        & 0.09206461906433105 detik                           & 2.848784923553467 detik                                  \\
+  Rumah             & Rumah                        & 0.09352707862854004 detik                           & 2.8643417358398438 detik                                   \\
+  Delete            & Delete                       & 0.0890190601348877 detik                            & 2.871215343475342 detik                                  \\
+  Standby           & Standby                      & 0.08996152877807617 detik                           & 3.3450722694396973 detik                                   \\
+  Translate         & Translate                    & 0.08868694305419922 detik                           & 3.3266687393188477 detik                                   \\
   \hline
 \end{longtable}
 
@@ -338,15 +356,15 @@ Pada pengujian di intensitas cahaya 35 lux, didapat bahwa pengguna tidak dapat m
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09696221351623535                           & 3.2127857208251953                                  \\
-  Tolong            & Tolong                        & 0.09327077865600586                           & 2.8273916244506836                                  \\
-  Nama              & Nama                        & 0.09208822250366211                           & 2.7649283409118652                                  \\
-  Saya              & Saya                        & 0.08996152877807617                           & 3.50247859954834                                  \\
-  Siapa              & Siapa                        & 0.08884954452514648                          & 2.910640239715576                                  \\
-  Rumah             & Rumah                       & 0.09037542343139648                           & 2.895984649658203                                  \\
-  Delete            & Delete                       & 0.0916590690612793                            & 2.876894474029541                                  \\
-  Standby           & Standby                      & 0.08996152877807617                           & 2.8268051147460938                                  \\
-  Translate         & Translate                     & 0.09454655647277832                           & 2.887272834777832                                  \\
+  Maaf              & Maaf                        & 0.09696221351623535 detik                           & 3.2127857208251953 detik                                 \\
+  Tolong            & Tolong                      & 0.09327077865600586 detik                           & 2.8273916244506836 detik                                 \\
+  Nama              & Nama                        & 0.09208822250366211 detik                           & 2.7649283409118652 detik                                 \\
+  Saya              & Saya                        & 0.08996152877807617 detik                           & 3.50247859954834 detik                               \\
+  Siapa             & Siapa                       & 0.08884954452514648 detik                           & 2.910640239715576 detik                                \\
+  Rumah             & Rumah                       & 0.09037542343139648 detik                           & 2.895984649658203 detik                                \\
+  Delete            & Delete                      & 0.0916590690612793 detik                            & 2.876894474029541 detik                                \\
+  Standby           & Standby                     & 0.08996152877807617 detik                           & 2.8268051147460938 detik                                 \\
+  Translate         & Translate                   & 0.09454655647277832 detik                           & 2.887272834777832 detik                                \\
   \hline
 \end{longtable}
 
@@ -357,15 +375,15 @@ Pada pengujian di intensitas cahaya 35 lux, didapat bahwa pengguna tidak dapat m
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.08908700942993164                           & 2.8675103187561035                                  \\
-  Tolong            & Tolong                        & 0.09565138816833496                           & 2.890141010284424                                  \\
-  Nama              & Nama                        & 0.09208822250366211                           & 3.3304882049560547                                  \\
-  Saya              & Saya                        & 0.08996152877807617                           & 2.884190082550049                                  \\
-  Siapa              & Siapa                        & 0.08884954452514648                           & 2.8408455848693848                                  \\
-  Rumah             & \textcolor{red}{Delete}                        & 0.08767223358154297                           & 3.3569884300231934                                  \\
-  Delete            & Delete                        & 0.0912930965423584                            & 2.8562521934509277                                  \\
-  Standby           & Standby                        & 0.08996152877807617                           & 2.8762435913085938                                  \\
-  Translate         & Translate                        & 0.09907031059265137                           &2.8639984130859375                                  \\
+  Maaf              & Maaf                          & 0.08908700942993164 detik                          & 2.8675103187561035 detik                                  \\
+  Tolong            & Tolong                        & 0.09565138816833496 detik                          & 2.890141010284424 detik                                 \\
+  Nama              & Nama                          & 0.09208822250366211 detik                          & 3.3304882049560547 detik                                  \\
+  Saya              & Saya                          & 0.08996152877807617 detik                          & 2.884190082550049 detik                                 \\
+  Siapa             & Siapa                         & 0.08884954452514648 detik                          & 2.8408455848693848 detik                                  \\
+  Rumah             & \textcolor{red}{Delete}       & 0.08767223358154297 detik                          & 3.3569884300231934 detik                                  \\
+  Delete            & Delete                        & 0.0912930965423584 detik                           & 2.8562521934509277 detik                                  \\
+  Standby           & Standby                       & 0.08996152877807617 detik                          & 2.8762435913085938 detik                                  \\
+  Translate         & Translate                     & 0.09907031059265137 detik                          & 2.8639984130859375 detik                                  \\
   \hline
 \end{longtable}
 
@@ -384,15 +402,15 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09604573249816895                           & 2.820918560028076                                  \\
-  Tolong            & Tolong                        & 0.0939791202545166                           & 1.4211559295654297                                  \\
-  Nama              & Nama                        & 0.0941765308380127                           & 2.7805566787719727                                  \\
-  Saya              & Saya                        & 0.09122896194458008                           & 2.7644705772399902                                  \\
-  Siapa              & Siapa                        & 0.09381675720214844                           & 2.788267135620117                                  \\
-  Rumah             & Rumah                        & 0.09244728088378906                           & 3.0803489685058594                                  \\
-  Delete            & Delete                        & 0.08883857727050781                           & 2.8483128547668457                                  \\
-  Standby           & Standby                        & 0.09215426445007324                           & 1.4267277717590332                                  \\
-  Translate         & Translate                        & 0.09544491767883301                           & 2.930331230163574                                  \\
+  Maaf              & Maaf                        & 0.09604573249816895 detik                           & 2.820918560028076 detik                                 \\
+  Tolong            & Tolong                      & 0.0939791202545166 detik                            & 1.4211559295654297 detik                                  \\
+  Nama              & Nama                        & 0.0941765308380127 detik                            & 2.7805566787719727 detik                                  \\
+  Saya              & Saya                        & 0.09122896194458008 detik                           & 2.7644705772399902 detik                                  \\
+  Siapa             & Siapa                       & 0.09381675720214844 detik                           & 2.788267135620117 detik                                 \\
+  Rumah             & Rumah                       & 0.09244728088378906 detik                           & 3.0803489685058594 detik                                  \\
+  Delete            & Delete                      & 0.08883857727050781 detik                           & 2.8483128547668457 detik                                  \\
+  Standby           & Standby                     & 0.09215426445007324 detik                           & 1.4267277717590332 detik                                  \\
+  Translate         & Translate                   & 0.09544491767883301 detik                           & 2.930331230163574 detik                                 \\
   \hline
 \end{longtable}
 
@@ -403,15 +421,15 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09327888488769531                           & 2.730073928833008                                  \\
-  Tolong            & Tolong                        & 0.0879817008972168                           & 1.4511394500732422                                  \\
-  Nama              & Nama                        & 0.09166264533996582                           & 2.7438855171203613                                  \\
-  Saya              & Saya                        & 0.09122896194458008                           & 2.8403663635253906                                  \\
-  Siapa              & Siapa                        & 0.09119915962219238                           & 2.913722991943359                                  \\
-  Rumah             & Rumah                        & 0.09163784980773926                           & 2.8235578536987305                                  \\
-  Delete            & Delete                        & 0.09363150596618652                           & 2.670907974243164                                  \\
-  Standby           & Standby                        & 0.09107518196105957                           & 1.3966870307922363                                  \\
-  Translate         & Translate                        & 0.10021495819091797                           & 3.096485137939453                                  \\
+  Maaf              & Maaf                          & 0.09327888488769531 detik                           & 2.730073928833008 detik                                 \\
+  Tolong            & Tolong                        & 0.0879817008972168 detik                            & 1.4511394500732422 detik                                  \\
+  Nama              & Nama                          & 0.09166264533996582 detik                           & 2.7438855171203613 detik                                  \\
+  Saya              & Saya                          & 0.09122896194458008 detik                           & 2.8403663635253906 detik                                  \\
+  Siapa             & Siapa                         & 0.09119915962219238 detik                           & 2.913722991943359 detik                                 \\
+  Rumah             & Rumah                         & 0.09163784980773926 detik                           & 2.8235578536987305 detik                                  \\
+  Delete            & Delete                        & 0.09363150596618652 detik                           & 2.670907974243164 detik                                 \\
+  Standby           & Standby                       & 0.09107518196105957 detik                           & 1.3966870307922363 detik                                  \\
+  Translate         & Translate                     & 0.10021495819091797 detik                           & 3.096485137939453 detik                                 \\
   \hline
 \end{longtable}
 
@@ -421,16 +439,16 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \hline
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
-  \hline
-  Maaf              & Maaf                        & 0.09278368949890137                           & 2.820918560028076                                  \\
-  Tolong            & Tolong                        & 0.09278368949890137                           & 1.460716724395752                                  \\
-  Nama              & Nama                        & 0.0939791202545166                           & 2.825596332550049                                  \\
-  Saya              & Saya                        & 0.09705543518066406                           & 2.8554511070251465                                  \\
-  Siapa              & Siapa                        & 0.08928465843200684                           & 2.6734185218811035                                  \\
-  Rumah             & Rumah                        & 0.09006929397583008                           & 2.763504981994629                                  \\
-  Delete            & Delete                        & 0.09212327003479004                           & 2.730696201324463                                  \\
-  Standby           & Standby                        & 0.09167933464050293                           & 1.4569830894470215                                  \\
-  Translate         & Translate                        & 0.092132568359375                           & 2.909302711486816                                  \\
+  \hline detik
+  Maaf              & Maaf                        & 0.09278368949890137 detik                           & 2.820918560028076 detik                                  \\
+  Tolong            & Tolong                      & 0.09278368949890137 detik                           & 1.460716724395752 detik                                  \\
+  Nama              & Nama                        & 0.0939791202545166 detik                            & 2.825596332550049 detik                                  \\
+  Saya              & Saya                        & 0.09705543518066406 detik                           & 2.8554511070251465 detik                                  \\
+  Siapa             & Siapa                       & 0.08928465843200684 detik                           & 2.6734185218811035 detik                                  \\
+  Rumah             & Rumah                       & 0.09006929397583008 detik                           & 2.763504981994629 detik                                 \\
+  Delete            & Delete                      & 0.09212327003479004 detik                           & 2.730696201324463 detik                                 \\
+  Standby           & Standby                     & 0.09167933464050293 detik                           & 1.4569830894470215 detik                                  \\
+  Translate         & Translate                   & 0.092132568359375 detik                             & 2.909302711486816 detik                                 \\
   \hline
 \end{longtable}
 
@@ -438,14 +456,28 @@ Berdasarkan tiga pengujian yang telah dilakukan, didapat bahwa keseluruhan klasi
 
 Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat (\emph{processing time}) adalah 0.093 detik dan rata - rata waktu yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}) adalah 2.519 detik. Dapat dilihat bahwa terdapat peningkatan \emph{complete time} seiring dengan meningkatnya intensitas cahaya ruangan. Hal ini menunjukkan bahwa kemampuan kamera dalam menangkap gerakan bahasa isyarat lebih mudah dan jelas lagi sehingga dalam memproses tiap \emph{frame} yang nantinya digunakan untuk mendapatkan data koordinat menjadi lebih cepat. Namun, kenaikan intensitas cahaya tidak menyebabkan kenaikan terhadap \emph{processing time}. Apabila dibandingkan dengan pengujian pada intensitas cahaya 80 lux, terdapat penurunan sebesar 0.002 detik. Penurunan ini terbilang sangat kecil dan tidak mempengaruhi pengalaman pengguna dalam menggunakan program penerjemah bahasa isyarat Indonesia (BISINDO) secara keseluruhan. Adanya penurunan \emph{processing time} dapat disebabkan oleh ekstraksi koordinat pada tiap \emph{frame} yang lebih baik lagi, dimana untuk 108 koordinat yang digunakan memiliki suatu nilai dan tidak bernilai 0 (pada \emph{framework} Mediapipe apabila suatu koordinat tidak terdeteksi, maka akan otomatis bernilai 0). Hal ini berdampak pada model yang harus memproses lebih banyak lagi untuk menghasilkan klasifikasi bahasa isyarat.
 
+\subsection{Rangkuman Pengujian Kondisi Cahaya}
+\label{sec:analisisrangkumancahaya}
+
+\begin{longtable}{|c|c|c|c|}
+  \caption{Rangkuman Pengujian Kondisi Cahaya}
+  \label{tb:evaluasiCahaya}                                   \\
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{Cahaya} & \textbf{Akurasi} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+  \hline
+  35 lux & 0.89 & 0.0938 detik & 3.0335 detik \\
+  85 lux & 1.00 & 0.0918 detik & 2.9928 detik \\
+  125 lux & 0.96& 0.0923 detik & 2.4777 detik \\
+  \hline
+\end{longtable}
+
+Secara keseluruhan, dapat dilihat bahwa model dapat beradaptasi dengan baik terhadap perubahan intensitas cahaya. Pada tabel \ref{tb:evaluasiCahaya} dapat dilihat dengan nilai akurasi yang masih berada diatas 0.85 atau 85\%. Nilai akurasi cenderung meningkat seiring dengan semakin meningkatnya intensitas cahaya pada suatu ruangan. Akurasi tertinggi, yaitu pada nilai intensitas cahaya 85 lux dapat disebabkan oleh kemiripan data yang didapatkan pada intensitas cahaya tersebut dengan dataset yang dipelajadi oleh model. Kenaikan intensitas cahaya memudahkan kamera dalam menangkap gerakan isyarat pengguna dengan lebih jelas dan detail lagi sehingga nantinya \emph{framework} MediaPipe dapat mendapatkan data koordinat dengan lebih akurat lagi. Adapun pada nilai \emph{average complete time} terdapat penurunan yang cukup signifikan seiring dengan peningkatan intensitas cahaya. Penurunan juga terjadi pada nilai \emph{average processing time}. Hal ini dapat disebabkan oleh beban kerja kamera untuk bekerja pada intensitas cahaya yang rendah lebih tinggi.
+
+\newpage
 \section{Pengujian Kondisi Jarak}
 \label{sec:analisisjarak}
 
-Pada pengujian kondisi jarak ini dilakukan untuk memahami bagaimana performa model pada jarak kamera dengan pengguna yang berbeda - beda. Adapun jarak yang akan digunakan pada pengujian ini adalah 180 cm, 240 cm, dan 300 cm. Variasi jarak ini dipilih dengan mempertimbangkan bahwa bagian kepala hingga tangan pengguna dapat terlihat secara jelas pada kamera sehingga setiap gerakan bahasa isyarat yang akan dilakukan. Untuk menghasilkan klasifikasi model diperlukan 30 \emph{frame} dan untuk setiap \emph{frame} diekstraksi koordinatnya dengan menggunakan \emph{framework} Mediapipe, apabila bagian tubuh pengguna (terkhususnya tangan dan kepala yang dominan digunakan untuk merepresentasikan suatu bahasa isyarat) tidak terlihat pada kamera akan mempengaruhi data koordinat yang didapatkan dan menyulitkan model untuk melakukan klasifikasi dengan tepat. Adapun posisi pengguna dengan jarak masing - masing dapat dlihat pada tabel \ref{tb:kondisijarak}. 
-
-Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian ini adalah model pada bagian \ref{sec:analisismodel3} karena merupakan model yang menghasilkan klasifikasi yang terbaik jika dibandingkan dengan model lainnya. Untuk setiap variasi jarak akan dilakukan pengujian sebanyak tiga kali dengan kondisi ruangan yang memiliki intensitas cahaya yang terang (berkisar pada 125 lux). Pada setiap pengujian akan dicari hasil klasifikasi model, waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat berdasarkan data koordinat yang diberikan(\emph{processing time}), dan waktu total yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}).  
-
-\newpage
 \begin{longtable}{|c|c|}
   \caption{Variasi Kondisi Jarak}
   \label{tb:kondisijarak}                                   \\
@@ -453,15 +485,18 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Jarak} & \textbf{Gambar Kondisi}  \\
   \hline
-  180 cm            &  \includegraphics[scale=0.15]{gambar/bab4-jarak180.png}                \\
+  180 cm            &  \includegraphics[scale=0.15]{gambar/bab4-jarak300.png}                \\
   \hline
   240 cm            & \includegraphics[scale=0.15]{gambar/bab4-jarak240.png}                 \\
   \hline
-  300 cm            & \includegraphics[scale=0.15]{gambar/bab4-jarak300.png}                 \\
+  300 cm            & \includegraphics[scale=0.15]{gambar/bab4-jarak180.png}                 \\
   \hline
 \end{longtable}
 
-\newpage
+Pada pengujian kondisi jarak ini dilakukan untuk memahami bagaimana performa model pada jarak kamera dengan pengguna yang berbeda - beda. Adapun jarak yang akan digunakan pada pengujian ini adalah 180 cm, 240 cm, dan 300 cm. Variasi jarak ini dipilih dengan mempertimbangkan bahwa bagian kepala hingga tangan pengguna dapat terlihat secara jelas pada kamera sehingga setiap gerakan bahasa isyarat yang akan dilakukan. Untuk menghasilkan klasifikasi model diperlukan 30 \emph{frame} dan untuk setiap \emph{frame} diekstraksi koordinatnya dengan menggunakan \emph{framework} Mediapipe, apabila bagian tubuh pengguna (terkhususnya tangan dan kepala yang dominan digunakan untuk merepresentasikan suatu bahasa isyarat) tidak terlihat pada kamera akan mempengaruhi data koordinat yang didapatkan dan menyulitkan model untuk melakukan klasifikasi dengan tepat. Adapun posisi pengguna dengan jarak masing - masing dapat dlihat pada tabel \ref{tb:kondisijarak}. 
+
+Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian ini adalah model pada bagian \ref{sec:analisismodel3} karena merupakan model yang menghasilkan klasifikasi yang terbaik jika dibandingkan dengan model lainnya. Untuk setiap variasi jarak akan dilakukan pengujian sebanyak tiga kali dengan kondisi ruangan yang memiliki intensitas cahaya yang terang (berkisar pada 125 lux). Pada setiap pengujian akan dicari hasil klasifikasi model, waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat berdasarkan data koordinat yang diberikan(\emph{processing time}), dan waktu total yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}).  
+
 \subsection{Pengujian Jarak 180 cm}
 \label{sec:analisisjarak1}
 
@@ -472,15 +507,15 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09432005882263184                           & 2.6262545585632324                                  \\
-  Tolong            & Tolong                        & 0.09578323364257812                           & 2.7582406997680664                                  \\
-  Nama              & Nama                        & 0.0936741828918457                           & 2.7642273902893066                                  \\
-  Saya              & Saya                        & 0.09214234352111816                           & 1.4595723152160645                                  \\
-  Siapa              & Siapa                        & 0.09187936782836914                           & 2.6860642433166504                                  \\
-  Rumah             & \textcolor{red}{Delete}                        & 0.09518122673034668                           & 2.7240443229675293                                  \\
-  Delete            & Delete                        & 0.09378981590270996                           & 1.4715027809143066                                  \\
-  Standby           & Standby                        & 0.09064006805419922                           & 1.4081025123596191                                  \\
-  Translate         & Translate                        & 0.09035801887512207                           & 2.901949882507324                                  \\
+  Maaf              & Maaf                          & 0.09432005882263184 detik                          & 2.6262545585632324 detik                                 \\
+  Tolong            & Tolong                        & 0.09578323364257812 detik                          & 2.7582406997680664 detik                                 \\
+  Nama              & Nama                          & 0.0936741828918457 detik                           & 2.7642273902893066 detik                                 \\
+  Saya              & Saya                          & 0.09214234352111816 detik                          & 1.4595723152160645 detik                                 \\
+  Siapa              & Siapa                        & 0.09187936782836914 detik                          & 2.6860642433166504 detik                                 \\
+  Rumah             & \textcolor{red}{Delete}       & 0.09518122673034668 detik                          & 2.7240443229675293 detik                                 \\
+  Delete            & Delete                        & 0.09378981590270996 detik                          & 1.4715027809143066 detik                                 \\
+  Standby           & Standby                       & 0.09064006805419922 detik                          & 1.4081025123596191 detik                                 \\
+  Translate         & Translate                     & 0.09035801887512207 detik                          & 2.901949882507324 detik                                \\
   \hline
 \end{longtable}
 
@@ -491,18 +526,19 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & \textcolor{red}{Tolong}                        & 0.1025094985961914                           & 2.683281898498535                                  \\
-  Tolong            & Tolong                        & 0.10531425476074219                           & 2.6761865615844727                                  \\
-  Nama              & Nama                        & 0.10347270965576172                           & 2.837998867034912                                  \\
-  Saya              & Saya                        & 0.10077977180480957                           & 1.6065859794616701                                  \\
-  Siapa              & Siapa                        & 0.09792852401733398                           & 2.89107084274292                                  \\
-  Rumah             & Rumah                        & 0.09961485862731934                           & 2.9763364791870117                                  \\
-  Delete            & Delete                        & 0.10204243659973145                           & 1.4318633079528809                                  \\
-  Standby           & Standby                        & 0.10916757583618164                           & 1.4253973960876465                                  \\
-  Translate         & Translate                        & 0.1098337173461914                           & 3.0064201354980464                                  \\
+  Maaf              & \textcolor{red}{Tolong}       & 0.1025094985961914  detik                           & 2.683281898498535  detik                                 \\
+  Tolong            & Tolong                        & 0.10531425476074219 detik                           & 2.6761865615844727 detik                                  \\
+  Nama              & Nama                          & 0.10347270965576172 detik                           & 2.837998867034912  detik                                 \\
+  Saya              & Saya                          & 0.10077977180480957 detik                           & 1.6065859794616701 detik                                  \\
+  Siapa              & Siapa                        & 0.09792852401733398 detik                           & 2.89107084274292   detik                                \\
+  Rumah             & Rumah                         & 0.09961485862731934 detik                           & 2.9763364791870117 detik                                  \\
+  Delete            & Delete                        & 0.10204243659973145 detik                           & 1.4318633079528809 detik                                  \\
+  Standby           & Standby                       & 0.10916757583618164 detik                           & 1.4253973960876465 detik                                  \\
+  Translate         & Translate                     & 0.1098337173461914  detik                           & 3.0064201354980464 detik                                  \\
   \hline
 \end{longtable}
 
+\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Ketiga Model di Kondisi Jarak 180 cm}
   \label{tb:prediksipendek3}                                   \\
@@ -510,15 +546,15 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09703993797302246                           & 2.6079654693603516                                  \\
-  Tolong            & Tolong                        & 0.11110496520996094                           & 2.688016891479492                                  \\
-  Nama              & Nama                        & 0.11299991607666016                           & 2.854478359222412                                  \\
-  Saya              & Saya                        & 0.1057591438293457                           & 1.4061927795410156                                  \\
-  Siapa              & Siapa                        & 0.10792779922485352                           & 2.819080352783203                                  \\
-  Rumah             & Rumah                        & 0.10235428810119629                           & 2.8994321823120117                                  \\
-  Delete            & Delete                        & 0.10874819755554199                           & 1.3875889778137207                                  \\
-  Standby           & Standby                        & 0.11034560203552246                           & 1.3965654373168945                                  \\
-  Translate         & Translate                        & 0.10168957710266113                           & 3.110654354095459                                  \\
+  Maaf              & Maaf                          & 0.09703993797302246 detik                          & 2.6079654693603516 detik                                  \\
+  Tolong            & Tolong                        & 0.11110496520996094 detik                          & 2.688016891479492 detik                                \\
+  Nama              & Nama                          & 0.11299991607666016 detik                          & 2.854478359222412 detik                                \\
+  Saya              & Saya                          & 0.1057591438293457 detik                           & 1.4061927795410156 detik                                 \\
+  Siapa             & Siapa                         & 0.10792779922485352 detik                          & 2.819080352783203 detik                                \\
+  Rumah             & Rumah                         & 0.10235428810119629 detik                          & 2.8994321823120117 detik                                 \\
+  Delete            & Delete                        & 0.10874819755554199 detik                          & 1.3875889778137207 detik                                 \\
+  Standby           & Standby                       & 0.11034560203552246 detik                          & 1.3965654373168945 detik                                 \\
+  Translate         & Translate                     & 0.10168957710266113 detik                          & 3.110654354095459 detik                                \\
   \hline
 \end{longtable}
 
@@ -528,6 +564,7 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
 
 Pada pengujian di kondisi jarak 180 cm ini, perlu diperhatikan bahwa pengguna harus melakukan gerakan bahasa isyarat dengan memastikan bahwa bagian tubuh kepala hingga tangan dengan jelas terlihat. Hal ini sangat krusial karena model memerlukan informasi koordinat yang lengkap untuk setiapp gerakan isyarat sehingga dapat menghasilkan klasifikasi yang tepat. Terkhususnya untuk kosakata "Translate", "Maaf", "Tolong", dan "Delete" yang memiliki gerakan isyarat yang cukup dinamis dan mayoritas gerakannya terjadi di samping kepala pengguna.  
 
+\newpage
 \subsection{Pengujian Jarak 240 cm}
 \label{sec:analisisjarak2}
 
@@ -538,19 +575,18 @@ Pada pengujian di kondisi jarak 180 cm ini, perlu diperhatikan bahwa pengguna ha
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09363484382629395                           & 2.8636908531188965                                  \\
-  Tolong            & Tolong                        & 0.09594297409057617                           & 2.699732780456543                                  \\
-  Nama              & Nama                        & 0.0991525650024414                           & 2.716062068939209                                  \\
-  Saya              & Saya                        & 0.09490489959716797                           & 1.3848638534545898                                  \\
-  Siapa              & Siapa                        & 0.09771037101745605                           & 2.778289318084717                                  \\
-  Rumah             & Rumah                        & 0.09178900718688965                           & 2.8422188758850098                                  \\
-  Delete            & Delete                        & 0.09782981872558594                           & 2.746889591217041                                  \\
-  Standby           & Standby                        & 0.09716463088989258                           & 1.4444875717163086                                  \\
-  Translate         & Translate                        & 0.0946202278137207                           & 2.8994321823120117                                  \\
+  Maaf              & Maaf                        & 0.09363484382629395 detik                           & 2.8636908531188965 detik                                  \\
+  Tolong            & Tolong                      & 0.09594297409057617 detik                           & 2.699732780456543 detik                                \\
+  Nama              & Nama                        & 0.0991525650024414 detik                            & 2.716062068939209 detik                                \\
+  Saya              & Saya                        & 0.09490489959716797 detik                           & 1.3848638534545898 detik                                 \\
+  Siapa             & Siapa                       & 0.09771037101745605 detik                           & 2.778289318084717 detik                                \\
+  Rumah             & Rumah                       & 0.09178900718688965 detik                           & 2.8422188758850098 detik                                 \\
+  Delete            & Delete                      & 0.09782981872558594 detik                           & 2.746889591217041 detik                                \\
+  Standby           & Standby                     & 0.09716463088989258 detik                           & 1.4444875717163086 detik                                 \\
+  Translate         & Translate                   & 0.0946202278137207 detik                            & 2.8994321823120117 detik                                 \\
   \hline
 \end{longtable}
 
-\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Kedua Model di Kondisi Jarak 240 cm}
   \label{tb:prediksitengah2}                                   \\
@@ -558,15 +594,15 @@ Pada pengujian di kondisi jarak 180 cm ini, perlu diperhatikan bahwa pengguna ha
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.10062599182128906                           & 2.837040424346924                                  \\
-  Tolong            & Tolong                        & 0.10464692115783691                           & 2.745509147644043                                  \\
-  Nama              & Nama                        & 0.0791633129119873                          & 2.7147960662841797                                  \\
-  Saya              & Saya                        & 0.11030316352844238                           & 1.4569830894470215                                  \\
-  Siapa              & Siapa                        & 0.09940838813781738                           & 2.7176427841186523                                  \\
-  Rumah             & Rumah                        & 0.10739994049072266                           & 2.7834320068359375                                  \\
-  Delete            & Delete                        & 0.10262727737426758                           & 2.848219871520996                                  \\
-  Standby           & Standby                        & 0.10418152809143066                           & 1.4255762100219727                                  \\
-  Translate         & Translate                        & 0.10814952850341797                           & 2.913722991943359                                  \\
+  Maaf              & Maaf                        & 0.10062599182128906 detik                          & 2.837040424346924 detik                                 \\
+  Tolong            & Tolong                      & 0.10464692115783691 detik                          & 2.745509147644043 detik                                 \\
+  Nama              & Nama                        & 0.0791633129119873 detik                           & 2.7147960662841797 detik                                  \\
+  Saya              & Saya                        & 0.11030316352844238 detik                          & 1.4569830894470215 detik                                  \\
+  Siapa             & Siapa                       & 0.09940838813781738 detik                          & 2.7176427841186523 detik                                  \\
+  Rumah             & Rumah                       & 0.10739994049072266 detik                          & 2.7834320068359375 detik                                  \\
+  Delete            & Delete                      & 0.10262727737426758 detik                          & 2.848219871520996 detik                                 \\
+  Standby           & Standby                     & 0.10418152809143066 detik                          & 1.4255762100219727 detik                                  \\
+  Translate         & Translate                   & 0.10814952850341797 detik                          & 2.913722991943359  detik                                 \\
   \hline
 \end{longtable}
 
@@ -577,15 +613,15 @@ Pada pengujian di kondisi jarak 180 cm ini, perlu diperhatikan bahwa pengguna ha
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.08161234855651855                           & 2.9344153404235835                                  \\
-  Tolong            & Tolong                        & 0.10856509208679199                           & 2.842411994934082                                  \\
-  Nama              & Nama                        & 0.08474326133728027                           & 2.8757071495056152                                  \\
-  Saya              & Saya                        & 0.10568404197692871                           & 1.7722105979919436                                  \\
-  Siapa              & Siapa                        & 0.10201120376586914                           & 2.6211905479431152                                  \\
-  Rumah             & \textcolor{red}{Delete}                        & 0.10468339920043945                           & 2.7255606651306152                                  \\
-  Delete            & Delete                        & 0.1030888557434082                           & 2.8281641006469727                                  \\
-  Standby           & Standby                        & 0.10799098014831543                           & 1.4275431632995605                                  \\
-  Translate         & Translate                        & 0.10626840591430664                           & 2.813551425933838                                  \\
+  Maaf              & Maaf                          & 0.08161234855651855 detik                           & 2.9344153404235835 detik                                  \\
+  Tolong            & Tolong                        & 0.10856509208679199 detik                           & 2.842411994934082 detik                                 \\
+  Nama              & Nama                          & 0.08474326133728027 detik                           & 2.8757071495056152 detik                                  \\
+  Saya              & Saya                          & 0.10568404197692871 detik                           & 1.7722105979919436 detik                                  \\
+  Siapa              & Siapa                        & 0.10201120376586914 detik                           & 2.6211905479431152 detik                                  \\
+  Rumah             & \textcolor{red}{Delete}       & 0.10468339920043945 detik                           & 2.7255606651306152 detik                                  \\
+  Delete            & Delete                        & 0.1030888557434082 detik                            & 2.8281641006469727 detik                                  \\
+  Standby           & Standby                       & 0.10799098014831543 detik                           & 1.4275431632995605 detik                                  \\
+  Translate         & Translate                     & 0.10626840591430664 detik                           & 2.813551425933838 detik                                 \\
   \hline
 \end{longtable}
 
@@ -593,7 +629,6 @@ Berdasarkan tiga pengujian yang telah dilakukan, didapatkan bahwa hampir keselur
 
 Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat (\emph{processing time}) adalah 0.099 detik dan rata - rata waktu yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}) adalah 2.506 detik. Apabila dibandingkan dengan pengujian sebelumnya (kondisi jarak 180 cm). Terdapat peningkatan pada nilai \emph{processing time} seiring dengan peningkatan jarak kamera dengan pengguna yaitu sebesar 0.002 detik. Sedangkan untuk nilai \emph{complete time} mengalami penurunan seiring dengan peningkatan jarak kamera dengan pengguna, yaitu sebesar 0.154 detik. Hal ini dapat disebabkan oleh adanya pengaruh antara jarak pengguna dengan kamera terhadap bagaimana beban kerja kamera dalam menangkap tiap \emph{frame}.
 
-\newpage
 \subsection{Pengujian Jarak 300 cm}
 \label{sec:analisisjarak3}
 
@@ -604,15 +639,15 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09520149230957031                           & 2.738614082336426                                  \\
-  Tolong            & Tolong                        & 0.0926811695098877                           & 2.878732681274414                                  \\
-  Nama              & Nama                        & 0.0982358455657959                           & 2.915797233581543                                  \\
-  Saya              & Saya                        & 0.0943760871887207                           & 2.8119421005249023                                  \\
-  Siapa              & Siapa                        & 0.1026923656463623                           & 2.7649641036987305                                  \\
-  Rumah             & Rumah                        & 0.09520149230957031                           & 2.740323543548584                                  \\
-  Delete            & Delete                        & 0.09269595146179199                           & 2.981078624725342                                  \\
-  Standby           & Standby                        & 0.09149551391601562                           & 2.813115119934082                                  \\
-  Translate         & Translate                        & 0.09415459632873535                           & 2.848083972930908                                  \\
+  Maaf              & Maaf                          & 0.09520149230957031 detik                           & 2.738614082336426 detik                                  \\
+  Tolong            & Tolong                        & 0.0926811695098877 detik                            & 2.878732681274414 detik                                  \\
+  Nama              & Nama                          & 0.0982358455657959 detik                            & 2.915797233581543 detik                                  \\
+  Saya              & Saya                          & 0.0943760871887207 detik                            & 2.8119421005249023 detik                                  \\
+  Siapa              & Siapa                        & 0.1026923656463623 detik                            & 2.7649641036987305 detik                                  \\
+  Rumah             & Rumah                         & 0.09520149230957031 detik                           & 2.740323543548584 detik                                  \\
+  Delete            & Delete                        & 0.09269595146179199 detik                           & 2.981078624725342 detik                                  \\
+  Standby           & Standby                       & 0.09149551391601562 detik                           & 2.813115119934082 detik                                  \\
+  Translate         & Translate                     & 0.09415459632873535 detik                           & 2.848083972930908 detik                                  \\
   \hline
 \end{longtable}
 
@@ -623,18 +658,19 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.11374950408935547                           & 2.8633904457092285                                  \\
-  Tolong            & Tolong                        & 0.10336184501647949                           & 2.7457737922668457                                  \\
-  Nama              & Nama                        & 0.1011803150177002                           & 2.690098285675049                                  \\
-  Saya              & Saya                        & 0.11127400398254395                           & 2.720317840576172                                  \\
-  Siapa              & Siapa                        & 0.10362887382507324                           & 2.84954309463501                                  \\
-  Rumah             & Rumah                        & 0.10374069213867188                           & 2.8711438179016113                                  \\
-  Delete            & Delete                        & 0.10743093490600586                           & 2.7329492568969727                                  \\
-  Standby           & Standby                        & 0.10061454772949219                           & 2.903716564178467                                  \\
-  Translate         & Translate                        & 0.10336613655090332                           & 2.752346992492676                                  \\
+  Maaf              & Maaf                          & 0.11374950408935547 detik                           & 2.8633904457092285 detik                                  \\
+  Tolong            & Tolong                        & 0.10336184501647949 detik                           & 2.7457737922668457 detik                                  \\
+  Nama              & Nama                          & 0.1011803150177002 detik                            & 2.690098285675049 detik                                 \\
+  Saya              & Saya                          & 0.11127400398254395 detik                           & 2.720317840576172 detik                                 \\
+  Siapa              & Siapa                        & 0.10362887382507324 detik                           & 2.84954309463501 detik                                \\
+  Rumah             & Rumah                         & 0.10374069213867188 detik                           & 2.8711438179016113 detik                                  \\
+  Delete            & Delete                        & 0.10743093490600586 detik                           & 2.7329492568969727 detik                                  \\
+  Standby           & Standby                       & 0.10061454772949219 detik                           & 2.903716564178467 detik                                 \\
+  Translate         & Translate                     & 0.10336613655090332 detik                           & 2.752346992492676 detik                                 \\
   \hline
 \end{longtable}
 
+\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Ketiga Model di Kondisi Jarak 300 cm}
   \label{tb:prediksijauh3}                                   \\
@@ -642,15 +678,15 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09520149230957031                           & 2.7579760551452637                                  \\
-  Tolong            & Tolong                        & 0.0926811695098877                           & 2.6619672775268555                                  \\
-  Nama              & Nama                        & 0.0982358455657959                           & 2.8861284255981445                                  \\
-  Saya              & Saya                        & 0.0943760871887207                           & 2.800147533416748                                  \\
-  Siapa              & Siapa                        & 0.1026923656463623                           & 2.763504981994629                                  \\
-  Rumah             & Rumah                        & 0.09520149230957031                           & 2.811462879180908                                  \\
-  Delete            & Delete                        & 0.09269595146179199                           & 2.6989388465881348                                  \\
-  Standby           & Standby                        & 0.09675002098083496                           & 2.7558088302612305                                  \\
-  Translate         & Translate                        & 0.10323047637939453                           & 2.67941951751709                                  \\
+  Maaf              & Maaf                        & 0.09520149230957031 detik                          & 2.7579760551452637 detik                                 \\
+  Tolong            & Tolong                      & 0.0926811695098877 detik                          & 2.6619672775268555 detik                                 \\
+  Nama              & Nama                        & 0.0982358455657959 detik                          & 2.8861284255981445 detik                                 \\
+  Saya              & Saya                        & 0.0943760871887207 detik                          & 2.800147533416748 detik                                 \\
+  Siapa             & Siapa                       & 0.1026923656463623 detik                          & 2.763504981994629 detik                                 \\
+  Rumah             & Rumah                       & 0.09520149230957031 detik                          & 2.811462879180908 detik                                  \\
+  Delete            & Delete                      & 0.09269595146179199 detik                          & 2.6989388465881348 detik                                 \\
+  Standby           & Standby                     & 0.09675002098083496 detik                          & 2.7558088302612305 detik                                  \\
+  Translate         & Translate                   & 0.10323047637939453 detik                          & 2.67941951751709 detik                                  \\
   \hline
 \end{longtable}
 
@@ -658,16 +694,27 @@ Berdasarkan tiga pengujian yang telah dilakukan, didapatkan bahwa keseluruhan kl
 
 Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat (\emph{processing time}) adalah 0.099 detik dan rata - rata waktu yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}) adalah 2.794 detik. Dapat dilihat bahwa tidak terdapat peningkatan pada \emph{processing time} jika dibandingkan dengan variasi jarak pada pengujian sebelumnya. Namun, pada nilai \emph{complete time} terdapat penurunan jika dibandingkan dengan pengujian sebelumnya, yaitu sebesar 0.288 detik. Hal ini menunjukkan bahwa terdapat penurunan dari nilai \emph{complete time} seiring dengan peningkatan jarak kamera dengan pengguna. Hal ini dapat kembali lagi menguatkan bahwa adanya pengaruh antara jarak pengguna dengan kamera terhadap bagaimana beban kerja kamera dalam menangkap tiap \emph{frame}.
 
-Secara keseluruhan, dapat dilihat bahwa variasi jarak yang berbeda tidak berpengaruh secara signifikan terhadap hasil klasifikasi model. Hal ini menunjukkan bahwa metode normalisasi data yang digunakan telah berhasil menghasilkan model yang invarian terhadap jarak. Dengan catatan bahwa posisi pengguna (terkhususnya bagian kepala dan tangan) dapat dengan jelas terlihat ketika melakukan gerakan isyarat.  
+\subsection{Rangkuman Pengujian Kondisi Jarak}
+\label{sec:analisisrangkumanjarak}
+
+\begin{longtable}{|c|c|c|c|}
+  \caption{Rangkuman Pengujian Kondisi Jarak}
+  \label{tb:evaluasiJarak}                                   \\
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{Jarak} & \textbf{Akurasi} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+  \hline
+  180 cm & 0.89 & 0.1017 detik & 2.3660 detik \\
+  240 cm & 0.96 & 0.0994 detik & 2.5098 detik \\
+  300 cm & 1.00 & 0.0997 detik & 2.7918 detik \\
+  \hline
+\end{longtable}
+
+Secara keseluruhan, dapat dilihat pada tabel \ref{tb:evaluasiJarak} bahwa variasi jarak yang berbeda tidak berpengaruh secara signifikan terhadap hasil klasifikasi model. Hal ini menunjukkan bahwa metode normalisasi data yang digunakan telah berhasil menghasilkan model yang invarian terhadap jarak. Dengan catatan bahwa posisi pengguna (terkhususnya bagian kepala dan tangan) dapat dengan jelas terlihat ketika melakukan gerakan isyarat. Dapat dilihat bahwa ada relasi antara jarak dengan \emph{average complete time}. Peningkatan \emph{average}. Namun, pada nilai \emph{average processing time} cenderung menurun dengan adanya peningkatan jarak. Kemampuan kamera dalam menangkap \emph{frame} menjadi pengaruh utama dalam peningkatan nilai \emph{complete time} dan \emph{processing time} karena gerakan isyarat yang dinamis memerlukan posisi kamera yang dapat menangkap setiap gerakan dengan jelas dan tepat. Semakin jelas gerakan isyarat yang ditangkap akan memudahkan \emph{framework} Mediapipe dalam mendapatkan data koordinat berdasarkan \emph{landmark} yang ada. Hal ini tentunya akan meningkatkan akurasi klasifikasi model, dimana ditunjukkan dengan adanya peningkatan akurasi seiring dengan peningkatan jarak.
 
 \section{Pengujian Subjek Berbeda}
 \label{sec:analisissubjek}
 
-Pada pengujian dengan menggunakan subjek yang berbeda ini dilakukan untuk memahami bagaimana performa model pada pengguna selain darii penulis. Hal ini dilakukan demi melihat apakah model berhasil beradaptasi terhadap data yang bukan merupakan dataset yang digunakan dalam \emph{training} sehingga kedepannya dapat digunakan oleh kalangan luas. Adapun subjek yang akan diujikan berjumlah 2, yaitu 1 perempuan dan 1 laki - laki. Adapun gambaran subjek yang akan diujikan dapat dilihat pada tabel \ref{tb:kondisisubjek}. 
-
-Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian ini adalah model pada bagian \ref{sec:analisismodel3} karena merupakan model yang menghasilkan klasifikasi yang terbaik jika dibandingkan dengan model lainnya. Untuk setiap intensitas cahaya akan dilakukan pengujian sebanyak tiga kali dengan jarak terhadap kamera sebesar 300 cm dan intensitas cahaya yang berkisar pada nilai 125 lux atau kondisi ruangan terang. Pada setiap pengujian akan dicari hasil klasifikasi model, waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat berdasarkan data koordinat yang diberikan(\emph{processing time}), dan waktu total yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}).  
-
-\newpage
 \begin{longtable}{|c|c|}
   \caption{Variasi Subjek Berbeda}
   \label{tb:kondisisubjek}                                   \\
@@ -681,7 +728,10 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \hline
 \end{longtable}
 
-\newpage
+Pada pengujian dengan menggunakan subjek yang berbeda ini dilakukan untuk memahami bagaimana performa model pada pengguna selain darii penulis. Hal ini dilakukan demi melihat apakah model berhasil beradaptasi terhadap data yang bukan merupakan dataset yang digunakan dalam \emph{training} sehingga kedepannya dapat digunakan oleh kalangan luas. Adapun subjek yang akan diujikan berjumlah 2, yaitu 1 perempuan dan 1 laki - laki. Adapun gambaran subjek yang akan diujikan dapat dilihat pada tabel \ref{tb:kondisisubjek}. 
+
+Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian ini adalah model pada bagian \ref{sec:analisismodel3} karena merupakan model yang menghasilkan klasifikasi yang terbaik jika dibandingkan dengan model lainnya. Untuk setiap intensitas cahaya akan dilakukan pengujian sebanyak tiga kali dengan jarak terhadap kamera sebesar 300 cm dan intensitas cahaya yang berkisar pada nilai 125 lux atau kondisi ruangan terang. Pada setiap pengujian akan dicari hasil klasifikasi model, waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat berdasarkan data koordinat yang diberikan(\emph{processing time}), dan waktu total yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}).  
+
 \subsection{Pengujian Subjek Perempuan}
 \label{sec:analisisperempuan}
 
@@ -692,15 +742,15 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & \textcolor{red}{Tolong}                        & 0.09316182136535645                           & 3.208651542663574                                  \\
-  Tolong            & Tolong                        & 0.0934598445892334                           & 2.874863147735596                                  \\
-  Nama              & Nama                        & 0.09218382835388184                           & 3.2549500465393066                                  \\
-  Saya              & Saya                        & 0.09529590606689453                           & 3.128707408905029                                  \\
-  Siapa              & Siapa                        & 0.09517526626586914                           & 2.9302382469177246                                  \\
-  Rumah             & \textcolor{red}{Delete}                        & 0.1019589900970459                           & 3.019108772277832                                  \\
-  Delete            & Delete                        & 0.10392284393310547                           & 3.0571460723876953                                  \\
-  Standby           & Standby                        & 0.09529590606689453                           & 1.4797425270080564                                  \\
-  Translate         & Translate                        & 0.0931706428527832                           & 2.943220138549805                                  \\
+  Maaf              & \textcolor{red}{Tolong}       & 0.09316182136535645 detik                           & 3.208651542663574 detik                                \\
+  Tolong            & Tolong                        & 0.0934598445892334 detik                            & 2.874863147735596 detik                                \\
+  Nama              & Nama                          & 0.09218382835388184 detik                           & 3.2549500465393066 detik                                 \\
+  Saya              & Saya                          & 0.09529590606689453 detik                           & 3.128707408905029 detik                                \\
+  Siapa              & Siapa                        & 0.09517526626586914 detik                           & 2.9302382469177246 detik                                 \\
+  Rumah             & \textcolor{red}{Delete}       & 0.1019589900970459 detik                            & 3.019108772277832 detik                                \\
+  Delete            & Delete                        & 0.10392284393310547 detik                           & 3.0571460723876953 detik                                 \\
+  Standby           & Standby                       & 0.09529590606689453 detik                           & 1.4797425270080564 detik                                 \\
+  Translate         & Translate                     & 0.0931706428527832 detik                            & 2.943220138549805 detik                                \\
   \hline
 \end{longtable}
 
@@ -711,18 +761,19 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09658217430114746                           & 3.1087589263916016                                  \\
-  Tolong            & Tolong                        & 0.0983424186706543                           & 2.8928446769714355                                  \\
-  Nama              & Nama                        & 0.09464740753173828                           & 2.980277538299561                                  \\
-  Saya              & Saya                        & 0.09416389465332031                           & 2.925252914428711                                  \\
-  Siapa              & Siapa                        & 0.0978078842163086                           & 2.927734851837158                                  \\
-  Rumah             & Rumah                        & 0.09566903114318848                           & 3.064112663269043                                  \\
-  Delete            & Delete                        & 0.10792422294616699                           & 3.3718514442443848                                  \\
-  Standby           & Standby                        & 0.09643745422363281                           & 1.5385866165161133                                  \\
-  Translate         & Translate                        & 0.10363197326660156                           & 2.9689049720764165                                  \\
+  Maaf              & Maaf                         & 0.09658217430114746 detik                           & 3.1087589263916016 detik                                  \\
+  Tolong            & Tolong                       & 0.0983424186706543 detik                            & 2.8928446769714355 detik                                  \\
+  Nama              & Nama                         & 0.09464740753173828 detik                           & 2.980277538299561 detik                                 \\
+  Saya              & Saya                         & 0.09416389465332031 detik                           & 2.925252914428711 detik                                 \\
+  Siapa             & Siapa                        & 0.0978078842163086 detik                            & 2.927734851837158 detik                                 \\
+  Rumah             & Rumah                        & 0.09566903114318848 detik                           & 3.064112663269043 detik                                 \\
+  Delete            & Delete                       & 0.10792422294616699 detik                           & 3.3718514442443848 detik                                  \\
+  Standby           & Standby                      & 0.09643745422363281 detik                           & 1.5385866165161133 detik                                  \\
+  Translate         & Translate                    & 0.10363197326660156 detik                           & 2.9689049720764165 detik                                  \\
   \hline
 \end{longtable}
 
+\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Ketiga Model di Subjek Berbeda Perempuan}
   \label{tb:prediksiperempuan3}                                   \\
@@ -730,15 +781,15 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09667658805847168                           & 3.103616237640381                                  \\
-  Tolong            & Tolong                        & 0.09738278388977051                           & 3.0499148368835454                                  \\
-  Nama              & Nama                        & 0.09640955924987793                           & 2.927877902984619                                  \\
-  Saya              & Saya                        & 0.0947885513305664                           & 1.4657378196716309                                  \\
-  Siapa              & Siapa                        & 0.09821367263793945                           & 3.0816650390625                                  \\
-  Rumah             & Rumah                        & 0.09819889068603516                           & 2.870771884918213                                  \\
-  Delete            & Delete                        & 0.11416792869567871                           & 3.0212616920471187                                  \\
-  Standby           & Standby                        & 0.09473133087158203                           & 1.5490007400512695                                  \\
-  Translate         & Translate                        & 0.09832525253295898                           & 3.1276202201843266                                  \\
+  Maaf              & Maaf                        & 0.09667658805847168 detik                           & 3.103616237640381 detik                                 \\
+  Tolong            & Tolong                      & 0.09738278388977051 detik                           & 3.0499148368835454 detik                                  \\
+  Nama              & Nama                        & 0.09640955924987793 detik                           & 2.927877902984619 detik                                 \\
+  Saya              & Saya                        & 0.0947885513305664 detik                            & 1.4657378196716309 detik                                  \\
+  Siapa             & Siapa                       & 0.09821367263793945 detik                           & 3.0816650390625 detik                               \\
+  Rumah             & Rumah                       & 0.09819889068603516 detik                           & 2.870771884918213 detik                                 \\
+  Delete            & Delete                      & 0.11416792869567871 detik                           & 3.0212616920471187 detik                                  \\
+  Standby           & Standby                     & 0.09473133087158203 detik                           & 1.5490007400512695 detik                                  \\
+  Translate         & Translate                   & 0.09832525253295898 detik                           & 3.1276202201843266 detik                                  \\
   \hline
 \end{longtable}
 
@@ -756,18 +807,19 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & \textcolor{red}{Tolong}                        & 0.10172176361083984                           & 3.0670595169067383                                  \\
-  Tolong            & Tolong                        & 0.09742546081542969                           & 3.017871379852295                                  \\
-  Nama              & Nama                        & 0.09616494178771973                           & 3.0398440361022954                                  \\
-  Saya              & Saya                        & 0.10310554504394531                           & 1.4680695533752441                                  \\
-  Siapa              & Siapa                        & 0.10661101341247559                           & 2.922499179840088                                  \\
-  Rumah             & \textcolor{red}{Delete}                        & 0.08926630020141602                           & 2.829294204711914                                  \\
-  Delete            & Delete                         & 0.09601879119873047                           & 3.159763813018799                                  \\
-  Standby           & Standby                        & 0.09913754463195801                            & 1.5385866165161133                                  \\
-  Translate         & Translate                        & 0.10099458694458008                           & 2.9112768173217773                                  \\
+  Maaf              & \textcolor{red}{Tolong}        & 0.10172176361083984 detik                           & 3.0670595169067383 detik                                  \\
+  Tolong            & Tolong                         & 0.09742546081542969 detik                           & 3.017871379852295 detik                                 \\
+  Nama              & Nama                           & 0.09616494178771973 detik                           & 3.0398440361022954 detik                                  \\
+  Saya              & Saya                           & 0.10310554504394531 detik                           & 1.4680695533752441 detik                                  \\
+  Siapa             & Siapa                          & 0.10661101341247559 detik                           & 2.922499179840088 detik                                 \\
+  Rumah             & \textcolor{red}{Delete}        & 0.08926630020141602 detik                           & 2.829294204711914 detik                                 \\
+  Delete            & Delete                         & 0.09601879119873047 detik                           & 3.159763813018799 detik                                 \\
+  Standby           & Standby                        & 0.09913754463195801 detik                           & 1.5385866165161133 detik                                  \\
+  Translate         & Translate                      & 0.10099458694458008 detik                           & 2.9112768173217773 detik                                  \\
   \hline
 \end{longtable}
 
+\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Kedua Model di Subjek Berbeda Laki - Laki}
   \label{tb:prediksilaki2}                                   \\
@@ -775,19 +827,18 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.10624909400939941                           & 2.9753994941711426                                  \\
-  Tolong            & Tolong                        & 0.09604954719543457                           & 2.9878664016723637                                  \\
-  Nama              & Nama                        & 0.09938287734985352                           & 2.855043411254883                                  \\
-  Saya              & Saya                        & 0.09951472282409668                           & 1.5473628044128418                                  \\
-  Siapa              & Siapa                        & 0.08862924575805664                           & 2.881293296813965                                  \\
-  Rumah             & Rumah                        & 0.08926630020141602                           & 2.879476547241211                                  \\
-  Delete            & Delete                        & 0.09708309173583984                           & 3.097364902496338                                  \\
-  Standby           & Standby                        & 0.10267424583435059                           & 1.5490007400512695                                  \\
-  Translate         & Translate                        & 0.10302090644836426                           & 3.1186795234680176                                  \\
+  Maaf              & Maaf                         & 0.10624909400939941 detik                           & 2.9753994941711426 detik                                  \\
+  Tolong            & Tolong                       & 0.09604954719543457 detik                           & 2.9878664016723637 detik                                  \\
+  Nama              & Nama                         & 0.09938287734985352 detik                           & 2.855043411254883 detik                                 \\
+  Saya              & Saya                         & 0.09951472282409668 detik                           & 1.5473628044128418 detik                                  \\
+  Siapa             & Siapa                        & 0.08862924575805664 detik                           & 2.881293296813965 detik                                 \\
+  Rumah             & Rumah                        & 0.08926630020141602 detik                           & 2.879476547241211 detik                                 \\
+  Delete            & Delete                       & 0.09708309173583984 detik                           & 3.097364902496338 detik                                 \\
+  Standby           & Standby                      & 0.10267424583435059 detik                           & 1.5490007400512695 detik                                  \\
+  Translate         & Translate                    & 0.10302090644836426 detik                           & 3.1186795234680176 detik                                  \\
   \hline
 \end{longtable}
 
-\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Ketiga Model di Subjek Berbeda Laki - Laki}
   \label{tb:prediksilaki3}                                   \\
@@ -795,15 +846,15 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09524083137512207                           & 3.0119776725769043                                  \\
-  Tolong            & Tolong                        & 0.10116004943847656                           & 3.0259251594543457                                  \\
-  Nama              & Nama                        & 0.10364699363708496                           & 2.9966139793395996                                  \\
-  Saya              & Saya                        & 0.0972299575805664                           & 1.4724183082580566                                  \\
-  Siapa              & Siapa                        & 0.09995222091674805                           & 2.967231273651123                                  \\
-  Rumah             & Rumah                        & 0.08926630020143602                           & 2.9637622833251953                                  \\
-  Delete            & Delete                        & 0.09006118774414062                           & 2.9045462608337402                                  \\
-  Standby           & Standby                        & 0.10000467300415039                           & 2.028508186340332                                  \\
-  Translate         & Translate                        & 0.10082817077636719                           & 3.1959056854248047                                  \\
+  Maaf              & Maaf                          & 0.09524083137512207 detik                           & 3.0119776725769043 detik                                  \\
+  Tolong            & Tolong                        & 0.10116004943847656 detik                           & 3.0259251594543457 detik                                 \\
+  Nama              & Nama                          & 0.10364699363708496 detik                           & 2.9966139793395996 detik                                 \\
+  Saya              & Saya                          & 0.0972299575805664 detik                            & 1.4724183082580566 detik                                 \\
+  Siapa             & Siapa                         & 0.09995222091674805 detik                           & 2.967231273651123 detik                                \\
+  Rumah             & Rumah                         & 0.08926630020143602 detik                           & 2.9637622833251953 detik                                 \\
+  Delete            & Delete                        & 0.09006118774414062 detik                           & 2.9045462608337402 detik                                 \\
+  Standby           & Standby                       & 0.10000467300415039 detik                           & 2.028508186340332 detik                                \\
+  Translate         & Translate                     & 0.10082817077636719 detik                           & 3.1959056854248047 detik                                 \\
   \hline
 \end{longtable}
 
@@ -811,12 +862,28 @@ Berdasarkan tiga pengujian yang telah dilakukan, didapatkan bahwa hampir keselur
 
 Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat (\emph{processing time}) adalah 0.098 detik dan rata - rata waktu yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}) adalah 2.682 detik. Hal ini menunjukkan bahwa pada subjek yang berbeda dengan penulis tidak mempengaruhi \emph{processing time} dan \emph{complete time}. Data ini juga menunjukkan bahwa proses normalisasi yang dilakukan telah berhasil dan memudahkan model untuk mengklasifikasikan gerakan bahasa isyarat secara \emph{general} atau menyeluruh.  
 
+\newpage
+\subsection{Rangkuman Pengujian Subjek Berbeda}
+\label{sec:analisissubjekberbeda}
+
+\begin{longtable}{|c|c|c|c|}
+  \caption{Rangkuman Pengujian Subjek Berbeda}
+  \label{tb:evaluasiSubjek}                                   \\
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{Subjek} & \textbf{Akurasi} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+  \hline
+  Perempuan & 0.93   & 0.0988 detik & 2.6636 detik \\
+  Laki - Laki & 0.93 & 0.0973 detik & 2.8191 detik \\
+  \hline
+\end{longtable}
+
+Secara keseluruhan, dapat dilihat bahwa model dapat bekerja untuk melakukan klasifikasi berdasarkan gerakan isyarat dari subjek yang berbeda dengan penulis. Normalisasi data yang dilakukan telah berhasil menggeneralisasi data sehingga model dapat menghasilkan klasifikasi yang baik meskipun berasal dari subjek yang berbeda dari penulis. Hal ini dibuktikan dengan akurasi pada subjek laki - laki dan perempuan bernilai 0.93 atau 93\%. Adapun nilai dari \emph{average processing time} dan \emph{average complete time} berkisar pada 0.09 detik dan 2.6 detik. Data ini tidak jauh berbeda dengan bebrapa pengujian sebelumnya yang telah dilakukan oleh penulis.
+
 \section{Pengujian Pembentukan Kalimat dan Konversi Suara}
 \label{sec:analisiskalimat}
 
 Pada pengujian pembentukan kalimat dan konversi suara ini dilakukan untuk memahami bagaimana sistem penerjemah bahasa isyarat Indonesia (BISINDO) jika digunakan untuk membentuk kalimat dan melakukan konversi suara berdasarkan kalimat yang dibentuk. Adapun sistematika dalam pembentukan kalimat dan konversi ini mengacu dengan \emph{flowchart} yang telah dijelaskan pada sub bab \ref{sec:metodologisistemkontrol}. Kombinasi kata untuk membentuk kalimat pada sistem ini dapat dilihat pada tabel \ref{tb:kalimatpengujian}. Perlu diperhatikan bahwa untuk mendeteksi kosakata dan mengontrol sistem (\emph{translate} dan \emph{delete}) memerlukan pengguna untuk berada di keadaan \emph{standby} terlebih dahulu. Pembentukan kalimat dan konveri suara pada pengujian ini dilakukan secara sekuensial dengan memastikan bahwa setiap kosakata benar terklasifikasi. Kemudian, kalimat akan diterjemahkan dengan melakukan gerakan isyarat kontrol "\emph{translate}" dan diakhiri dengan melakukan gerakan isyarat kontrol "\emph{delete}" untuk memastikan bahwa kosakata terakhir berhasil dihapus. Pengulangan bahasa isyarat dilakukan maksimal sebanyak tiga kali.
-
-Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian ini adalah model pada bagian \ref{sec:analisismodel3} karena merupakan model yang menghasilkan klasifikasi yang terbaik jika dibandingkan dengan model lainnya. Untuk setiap kombinasi kalimat akan dilakukan pengujian sebanyak satu kali dengan kondisi ruangan yang memiliki intensitas cahaya yang terang (berkisar pada 125 lux) dan jarak kamera dengan pengguna bernilai 300 cm. Pada setiap kombinasi kalimat akan dicari hasil klasifikasi model, waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat berdasarkan data koordinat yang diberikan(\emph{processing time}), dan waktu total yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}).  
 
 \begin{longtable}{|c|c|}
   \caption{Kalimat Pengujian}
@@ -841,6 +908,8 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \hline
 \end{longtable}
 
+Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian ini adalah model pada bagian \ref{sec:analisismodel3} karena merupakan model yang menghasilkan klasifikasi yang terbaik jika dibandingkan dengan model lainnya. Untuk setiap kombinasi kalimat akan dilakukan pengujian sebanyak satu kali dengan kondisi ruangan yang memiliki intensitas cahaya yang terang (berkisar pada 125 lux) dan jarak kamera dengan pengguna bernilai 300 cm. Pada setiap kombinasi kalimat akan dicari hasil klasifikasi model, waktu yang dibutuhkan model untuk menghasilkan klasifikasi bahasa isyarat berdasarkan data koordinat yang diberikan(\emph{processing time}), dan waktu total yang dibutuhkan dalam menghasilkan klasifikasi bahasa isyarat (\emph{complete time}).  
+
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Pembentukan Kalimat Pertama}
   \label{tb:prediksikombinasi1}                                   \\
@@ -848,11 +917,11 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.09733414649963379                           & 3.103902339935303                                  \\
-  Siapa            & Siapa                        & 0.0981595516204834                           & 2.81724214553833                                  \\
-  Nama              & Nama                        & 0.09517359733581543                           & 3.097071647644043                                  \\
-  Delete              & Delete                        & 0.09404182434082031                           & 3.1426548957824707                                  \\
-  Translate              & Translate                        & 0.09448504447937012                           & 2.94607400894165                                  \\
+  Maaf                & Maaf                          & 0.09733414649963379 detik                           & 3.103902339935303 detik                                 \\
+  Siapa               & Siapa                         & 0.0981595516204834 detik                            & 2.81724214553833 detik                                \\
+  Nama                & Nama                          & 0.09517359733581543 detik                           & 3.097071647644043 detik                                 \\
+  Delete              & Delete                        & 0.09404182434082031 detik                           & 3.1426548957824707 detik                                  \\
+  Translate           & Translate                     & 0.09448504447937012 detik                           & 2.94607400894165 detik                                \\
   \hline
 \end{longtable}
 
@@ -863,11 +932,11 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.10064482688903809                           & 2.822299003601074                                  \\
-  Tolong            & Tolong                        & 0.09766435623168945                           & 2.844550609588623                                  \\
-  Saya              & Nama                        & 0.09680485725402832                           & 2.9134011268615723                                  \\
-  Delete              & Delete                        & 0.09553837776184082                           & 3.1421828269958496                                  \\
-  Translate              & Translate                        & 0.09472537040710449                           & 2.8847408294677734                                  \\
+  Maaf              & Maaf                          & 0.10064482688903809 detik                           & 2.822299003601074 detik                                 \\
+  Tolong            & Tolong                        & 0.09766435623168945 detik                           & 2.844550609588623 detik                                 \\
+  Saya              & Nama                          & 0.09680485725402832 detik                           & 2.9134011268615723 detik                                  \\
+  Delete              & Delete                      & 0.09553837776184082 detik                           & 3.1421828269958496 detik                                  \\
+  Translate              & Translate                & 0.09472537040710449 detik                           & 2.8847408294677734 detik                                  \\
   \hline
 \end{longtable}
 
@@ -878,11 +947,11 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Maaf              & Maaf                        & 0.10550785064697266                           & 2.969491481781006                                  \\
-  Rumah            & Tolong                        & 0.0971059799194336                           & 2.9895544052124023                                  \\
-  Siapa              & Nama                        & 0.10715579986572266                           & 2.9179072380065922                                  \\
-  Delete              & Delete                        & 0.0979464054107666                           & 2.9804134368896484                                  \\
-  Translate              & Translate                        & 0.10163474082946777                           & 2.958190441131592                                  \\
+  Maaf              & Maaf                          & 0.10550785064697266 detik                           & 2.969491481781006 detik                                 \\
+  Rumah            & Tolong                         & 0.0971059799194336  detik                           & 2.9895544052124023 detik                                  \\
+  Siapa              & Nama                         & 0.10715579986572266 detik                           & 2.9179072380065922 detik                                  \\
+  Delete              & Delete                      & 0.0979464054107666  detik                           & 2.9804134368896484 detik                                  \\
+  Translate              & Translate                & 0.10163474082946777 detik                           & 2.958190441131592 detik                                 \\
   \hline
 \end{longtable}
 
@@ -893,14 +962,14 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Rumah              & \textcolor{red}{Delete}                        & 0.09740185737609863                           & 3.042304515838623                                  \\
-  Saya            & Saya                        & 0.0987851619720459                           & 1.4961934089660645                                  \\
-  Delete              & Delete                        & 0.09497356414794922                           & 2.9061841964721684                                  \\
-  Translate              & Translate                        & 0.10316205024719238                           & 2.943763732910156                                  \\
+  Rumah               & \textcolor{red}{Delete}       & 0.09740185737609863 detik                           & 3.042304515838623 detik                                 \\
+  Saya                & Saya                          & 0.0987851619720459 detik                            & 1.4961934089660645 detik                                  \\
+  Delete              & Delete                        & 0.09497356414794922 detik                           & 2.9061841964721684 detik                                  \\
+  Translate           & Translate                     & 0.10316205024719238 detik                           & 2.943763732910156 detik                                 \\
   \hline
 \end{longtable}
 
-
+\newpage
 \begin{longtable}{|c|c|c|c|}
   \caption{Pengujian Pembentukan Kalimat Kelima}
   \label{tb:prediksikombinasi5}                                   \\
@@ -908,10 +977,10 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Processing Time}}\\
   \hline
-  Rumah              & Rumah                        & 0.09344840049743652                           & 1.5613818168640137                                  \\
-  Siapa            & Siapa                        & 0.09488558769226074                           & 1.4586281776428223                                  \\
-  Delete              & Delete                        & 0.09873461723327637                           & 3.033885955810547                                  \\
-  Translate              & Translate                        & 0.1056978702545166                           & 2.9063844680786133                                  \\
+  Rumah               & Rumah                         & 0.09344840049743652 detik                           & 1.5613818168640137 detik                                  \\
+  Siapa               & Siapa                         & 0.09488558769226074 detik                           & 1.4586281776428223 detik                                  \\
+  Delete              & Delete                        & 0.09873461723327637 detik                           & 3.033885955810547  detik                                 \\
+  Translate           & Translate                     & 0.1056978702545166 detik                            & 2.9063844680786133 detik                                  \\
   \hline
 \end{longtable}
 
@@ -922,10 +991,10 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Siapa              & Siapa                        & 0.10315442085266113                           & 3.042304515838623                                  \\
-  Nama            & Nama                        & 0.0998544692993164                           & 1.4961934089660645                                  \\
-  Delete              & Delete                        & 0.09890484809875488                           & 2.9061841964721684                                  \\
-  Translate              & Translate                        & 0.10316205024719238                           & 2.943763732910156                                  \\
+  Siapa               & Siapa                         & 0.10315442085266113 detik                           & 3.042304515838623 detik                                 \\
+  Nama                & Nama                          & 0.0998544692993164  detik                           & 1.4961934089660645 detik                                  \\
+  Delete              & Delete                        & 0.09890484809875488 detik                           & 2.9061841964721684 detik                                  \\
+  Translate           & Translate                     & 0.10316205024719238 detik                           & 2.943763732910156 detik                                 \\
   \hline
 \end{longtable}
 
@@ -936,10 +1005,10 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
   \rowcolor[HTML]{C0C0C0}
   \textbf{Kosakata} & \textbf{Klasifikasi Model} & \textbf{\emph{Processing Time}} & \textbf{\emph{Complete Time}}\\
   \hline
-  Tolong              & Tolong                        & 0.10103940963745117                           & 3.0083799362182617                                  \\
-  Saya            & Saya                        & 0.10042452812194824                           & 2.944457530975342                                  \\
-  Delete              & Delete                        & 0.0952444076538086                           & 3.03605318069458                                  \\
-  Translate              & Translate                        & 0.10302400588989258                           & 3.0155038833618164                                  \\
+  Tolong              & Tolong                        & 0.10103940963745117 detik                          & 3.0083799362182617 detik                                  \\
+  Saya                & Saya                          & 0.10042452812194824 detik                          & 2.944457530975342 detik                                 \\
+  Delete              & Delete                        & 0.0952444076538086 detik                           & 3.03605318069458  detik                                \\
+  Translate           & Translate                     & 0.10302400588989258 detik                          & 3.0155038833618164 detik                                  \\
   \hline
 \end{longtable}
 
@@ -962,9 +1031,26 @@ Model penerjemah bahasa Indonesia (BISINDO) yang akan digunakan pada pengujian i
 
 Untuk kalimat yang terdiri dari kombinasi tiga kosakata, yaitu kalimat pertama, kalimat kedua, dan kalimat ketiga telah berhasil dibentuk. Hal ini dapat dilihat dari untuk kombinasi kosakata pembentuk kalimat tersebut telah berhasil diklasifikasikan dengan akurasi sebesar 100\% (dapat dilihat pada tabel \ref{tb:prediksikombinasi1}, tabel \ref{tb:prediksikombinasi2}, dan tabel \ref{tb:prediksikombinasi3}). Pada kalimat pertama, rata - rata \emph{processing time} bernilai 0.096 detik dan \emph{complete time} bernilai 3.021 detik. Pada kalimat kedua, rata - rata \emph{processing time} bernilai 0.097 detik dan \emph{complete time} bernilai 2.921 detik. Pada kalimat ketiga, rata - rata \emph{processing time} bernilai 0.102 detik dan \emph{complete time} bernilai 2.963 detik. Dapat dilihat bahwa meskipun gerakan bahasa isyarat dilakukan secara sekuensial, tetap dapat menghasilkan klasifikasi akurasi yang baik.
 
-Untuk kalimat yang terdiri dari kombinasi dua kosakata, yaitu kalimat kelima, keenam, dan ketujuh telah berhasil dibentuk. Hal ini dapat dilihat dari kombinasi kosakata pembentuk kalimat tersebut telah berhasil diklasifikasikan dengan akurasi sebesar 100\% (dapat dilihat pada tabel \ref{tb:prediksikombinasi5}, \ref{tb:prediksikombinasi6}, \ref{tb:prediksikombinasi7}). Pada kalimat kelima, rata - rata \emph{processing time} bernilai 0.098 detik dan \emph{complete time} bernilai 2.240 detik. Pada kalimat keenam, rata - rata \emph{processing time} bernilai 0.100 detik dan \emph{complete time} bernilai 2.199 detik.Pada kalimat ketujuh, rata - rata \emph{processing time} bernilai 0.100 detik dan \emph{complete time} bernilai 3.001 detik. Dapat dilihat bahwa untuk \emph{complete time} relatif lebih cepat pada kalimat dengan kombinasi tiga kosakata jika dibandingkan dengan kalimat dengan kombinasi dua kosakata.
+Untuk kalimat yang terdiri dari kombinasi dua kosakata, yaitu kalimat kelima, keenam, dan ketujuh telah berhasil dibentuk. Hal ini dapat dilihat dari kombinasi kosakata pembentuk kalimat tersebut telah berhasil diklasifikasikan dengan akurasi sebesar 93.75\% (dapat dilihat pada tabel \ref{tb:prediksikombinasi5}, \ref{tb:prediksikombinasi6}, \ref{tb:prediksikombinasi7}). Pada kalimat kelima, rata - rata \emph{processing time} bernilai 0.098 detik dan \emph{complete time} bernilai 2.240 detik. Pada kalimat keenam, rata - rata \emph{processing time} bernilai 0.100 detik dan \emph{complete time} bernilai 2.199 detik.Pada kalimat ketujuh, rata - rata \emph{processing time} bernilai 0.100 detik dan \emph{complete time} bernilai 3.001 detik. Dapat dilihat bahwa untuk \emph{complete time} relatif lebih cepat pada kalimat dengan kombinasi tiga kosakata jika dibandingkan dengan kalimat dengan kombinasi dua kosakata.
 
-Namun, pada kalimat keempat ("Ini rumah saya") terdapat kosakata yang salah sehingga menyebabkan gagalnya terbentuk kalimat tersebut dalam pengujian yang dilakukan secara sekue\\nsial. Isyarat kosakata "Rumah" diklasifikasikan sebagai "Delete". Hal ini dapat disebabkan oleh adanya kemiripan gerakan antara kedua kosakata tersebut. rata - rata \emph{processing time} bernilai 0.099 detik dan \emph{complete time} bernilai 2.597 detik. Secara keseluruhan, sistem penerjemah telah berhasil membentuk kalimat dan mengkonversi menjadi suara dengan tingkat keberhasilan sebesar  85.7\%.
+Namun, pada kalimat keempat ("Ini rumah saya") terdapat kosakata yang salah sehingga menyebabkan gagalnya terbentuk kalimat tersebut dalam pengujian yang dilakukan secara sekue\\nsial. Isyarat kosakata "Rumah" diklasifikasikan sebagai "Delete". Hal ini dapat disebabkan oleh adanya kemiripan gerakan antara kedua kosakata tersebut. rata - rata \emph{processing time} bernilai 0.099 detik dan \emph{complete time} bernilai 2.597 detik.
+
+\subsection{Rangkuman Pengujian Pembentukan Kalimat dan Konveri Suara}
+\label{sec:analisikalimatsuara}
+
+\begin{longtable}{|c|c|c|c|}
+  \caption{Rangkuman Pengujian Pembentukan Kalimat dan Konveri Suara}
+  \label{tb:evaluasiKalimatdanSuara}                                   \\
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{Kosakata} & \textbf{Akurasi} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+  \hline
+  2 kosakata & 1.00 & 0.0993 detik & 2.8303 detik \\
+  3 kosakata & 0.93 & 0.0981 detik & 2.0513 detik \\
+  \hline
+\end{longtable}
+
+Secara keseluruhan, dapat dilihat bahwa sistem penerjemah dapat melakukan klasifikasi dengan baik dalam menerjemahkan gerakan isyarat yang dilakukan secara sekuensial. Hal ini tidak berdampak secara signifikan terhadap \emph{average processing time} dan \emph{average complete time}. Akurasi klasifikasi masih sangat baik, dimana pada kalimat dengan 2 kosakata bernilai 1.00 atau 100\% dan 3 kosakata bernilai 0.93 atau 93\%. Pada kalimat dengan 3 kosakata, hanya 1 kalimat yang tidak berhasil untuk dibentuk, yaitu kalimat "Ini rumah saya" sehingga tingkat keberhasilan sistem penerjemah dalam membentuk kalimat adalah sebesar 85.7\%.
 
 % Untuk kalimat yang terdiri dari kombinasi tiga kosakata, pada kombinasi kalimat pertama didapat bahwa keseluruhan kosakata bahasa isyarat untuk kalimat "Maaf siapa nama kamu?" telah berhasil dibentuk. Hal ini dapat dilihat untuk seluruh kombinasi kosakata yang telah berhasil diklasifikasikan dengan akurasi sebesar 100\%. Untuk rata - rata \emph{processing time} dan \emph{complete time} adalah 0.096 detik  dan 3.021 detik. Pada kombinasi kalimat kedua, keseluruhan kosakata bahasa isyarat untuk kalimat "Maaf tolong bantu saya?" telah berhasil dibentuk. Hal ini dapat dilihat untuk seluruh kombinasi kosakata yang telah berhasil diklasifikasikan dengan akurasi sebesar 100\%. Untuk rata - rata \emph{processing time} dan \emph{complete time} adalah 0.097 detik  dan 2.921 detik. Pada kombinasi kalimat ketiga, keseluruhan kosakata bahasa isyarat untuk kalimat "Maaf ini rumah siapa?" telah berhasil dibentuk. Hal ini dapat dilihat untuk seluruh kombinasi kosakata yang telah berhasil diklasifikasikan dengan akurasi sebesar 100\%. Untuk rata - rata \emph{processing time} dan \emph{complete time} adalah 0.102 detik  dan 2.963 detik.
 
