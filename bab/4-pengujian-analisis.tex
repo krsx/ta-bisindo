@@ -56,7 +56,7 @@ Berdasarkan dari \emph{training} yang telah dilakukan didapatkan bahwa model men
   \label{fig:model1-train-loss}
 \end{figure}
 
-Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dataset \emph{testing} yang menghasilkan \emph{confusion matrix}. Dapat dilihat pada gambar \ref{fig:model1-cf}, untuk kosakata "maaf", "tolong", "rumah", "delete", dan "translate" menghasilkan prediksi yang tepat untuk keseluruhan dataset \emph{testing} yang diujikan. Namun, kosakata "nama", "saya", "siapa", dan "standby" menghasilkan beberapa prediksi yang tidak sesuai dengan dataset \emph{testing}. Kosakata "nama" menghasilkan 6 prediksi tepat dan 4 prediksi yang kurang tepat (1 dataset \emph{testing} bernilai "siapa" dan 3 dataset \emph{testing} bernilai "rumah"). Kosakata "saya" menghasilkan 10 prediksi tepat dan 2 prediksi yang kurang tepat (dataset \emph{testing} bernilai "translate"). Kosakata "siapa" menghasilkan 3 prediksi tepat dan 5 prediksi yang kurang tepat (2 dataset \emph{testing} bernilai "tolong",  2 dataset \emph{testing} bernilai "saya", dan 1 dataset \emph{testing} bernilai "translate"). Kosakata "standby" menghasilkan 7 prediksi tepat dan 1 prediksi yang kurang tepat (dataset \emph{testing} bernilai "saya"). Adapun berdasarkan hasil \emph{confusion matrix} ini didapat matrix evaluasi berupa \emph{accuracy}, \emph{precision}, \emph{recall}, dan \emph{F1-score} yang dapat dilihat pada tabel \ref{tb:model1stat}. Rata - rata nilai \emph{accuracy} sebesar 0.85, rata - rata nilai \emph{recall} sebesar 0.85, dan rata - rata nilai \emph{F1-score} sebesar 0.84.
+Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dataset \emph{testing} yang menghasilkan \emph{confusion matrix}. Dapat dilihat pada gambar \ref{fig:model1-cf}, untuk kosakata "maaf", "tolong", "rumah", "delete", dan "translate" menghasilkan prediksi yang tepat untuk keseluruhan dataset \emph{testing} yang diujikan. Namun, kosakata "nama", "saya", "siapa", dan "standby" menghasilkan beberapa prediksi yang tidak sesuai dengan dataset \emph{testing}. Kosakata "nama" menghasilkan 6 prediksi tepat dan 4 prediksi yang kurang tepat (1 dataset \emph{testing} bernilai "siapa" dan 3 dataset \emph{testing} bernilai "rumah"). Kosakata "saya" menghasilkan 10 prediksi tepat dan 2 prediksi yang kurang tepat (dataset \emph{testing} bernilai "translate"). Kosakata "siapa" menghasilkan 3 prediksi tepat dan 5 prediksi yang kurang tepat (2 dataset \emph{testing} bernilai "tolong",  2 dataset \emph{testing} bernilai "saya", dan 1 dataset \emph{testing} bernilai "translate"). Kosakata "standby" menghasilkan 7 prediksi tepat dan 1 prediksi yang kurang tepat (dataset \emph{testing} bernilai "saya"). Adapun berdasarkan hasil \emph{confusion matrix} ini didapat matrix evaluasi berupa \emph{accuracy}, \emph{precision}, \emph{recall}, dan \emph{F1-score} yang dapat dilihat pada tabel \ref{tb:model1stat}. Rata - rata nilai \emph{accuracy} sebesar 0.85, rata - rata nilai \emph{precision} sebesar 0.85, rata - rata nilai \emph{recall} sebesar 0.85, dan rata - rata nilai \emph{F1-score} sebesar 0.83.
 
 \begin{figure}[H]
   \centering
@@ -67,22 +67,22 @@ Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dat
   \label{fig:model1-cf}
 \end{figure}
 
-\begin{longtable}{|c|c|c|c|}
+\begin{longtable}{|c|c|c|c|c|}
   \caption{Matrix Evaluasi Model 1}
   \label{tb:model1stat}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
-  \textbf{Kosakata} & \textbf{\emph{Accuracy}} & \textbf{\emph{Precision}} & \textbf{\emph{F1-Score}} \\
+  \textbf{Kosakata} & \textbf{\emph{Accuracy}} & \textbf{\emph{Precision}} & \textbf{\emph{Recall}} & \textbf{\emph{F1-Score}} \\
   \hline
-  Maaf              & 1.00                        & 1.00                   & 1.00                \\
-  Tolong            & 0.80                        & 1.00                   & 0.89                \\
-  Nama              & 1.00                        & 0.60                   & 0.75                \\
-  Saya              & 0.77                        & 0.83                   & 0.80                \\
-  Siapa             & 0.75                        & 0.38                   & 0.50                \\
-  Rumah             & 0.62                        & 1.00                   & 0.77                \\
-  Delete            & 1.00                        & 1.00                   & 1.00                \\
-  Standby           & 1.00                        & 0.88                   & 0.93                \\
-  Translate         & 0.70                        & 1.00                   & 0.82                \\
+  Maaf              & 1.00                     & 1.00                        & 1.00                   & 1.00                \\
+  Tolong            & 1.00                     & 0.80                        & 1.00                   & 0.89                \\
+  Nama              & 0.60                     & 1.00                        & 0.60                   & 0.75                \\
+  Saya              & 0.83                     & 0.77                        & 0.83                   & 0.80                \\
+  Siapa             & 0.37                     & 0.75                        & 0.38                   & 0.50                \\
+  Rumah             & 1.00                     & 0.62                        & 1.00                   & 0.77                \\
+  Delete            & 1.00                     & 1.00                        & 1.00                   & 1.00                \\
+  Standby           & 0.87                     & 1.00                        & 0.88                   & 0.93                \\
+  Translate         & 1.00                     & 0.70                        & 1.00                   & 0.82                \\
   \hline
 \end{longtable}
 
@@ -121,7 +121,7 @@ Berdasarkan dari \emph{training} yang telah dilakukan didapatkan bahwa model men
 \end{figure}
 
 
-Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dataset \emph{testing} yang menghasilkan \emph{confusion matrix}. Dapat dilihat pada gambar \ref{fig:model2-cf}, untuk kosakata "tolong", "nama", "rumah", "delete", dan "translate" menghasilkan prediksi yang tepat untuk keseluruhan dataset \emph{testing} yang diujikan. Namun, kosakata "saya", "siapa", dan "standby" menghasilkan beberapa prediksi yang tidak sesuai dengan dataset \emph{testing}. Kosakata "maaf" menghasilkan 10 prediksi tepat dan 1 prediksi yang kurang tepat (dataset \emph{testing} bernilai "standb\\y"). Kosakata "saya" menghasilkan 11 prediksi tepat dan 2 prediksi yang kurang tepat (dataset \emph{testing} bernilai "siapa"). Kosakata "siapa" menghasilkan 5 prediksi tepat dan 1 prediksi yang kurang tepat (dataset \emph{testing} bernilai "saya"). Kosakata "standby" menghasilkan 7 prediksi tepat dan 1 prediksi yang kurang tepat (dataset \emph{testing} bernilai "siapa"). Dapat dilihat bahwa terdapat peningkatan performa dari model pertama dengan model kedua. Kosakata yang berhasil diprediksi sesuai dengan dataset \emph{testing} yang digunakan lebih banyak dibandingkan dengan model sebelumnya, yaitu 5 kosakata. Peningkatan ini disebabkan karena perubahan struktur dari model dengan adanya penggunaan \emph{layer Time Distributed} yang di dalamnya diisi dengan \emph{layer} Dense di lapisan awal model. Pengurangan pengunaan 1 \emph{layer} LSTM dapat dengan menggunakan fungsi aktivasi \emph{tanh}. Adapun berdasarkan \emph{confusion matrix} ini didapat matrix evaluasi berupa \emph{accuracy}, \emph{precision}, \emph{recall}, dan \emph{F1-score} yang dapat dilihat pada tabel \ref{tb:model2stat}. Rata - rata nilai \emph{accuracy} sebesar 0.94, rata - rata nilai \emph{recall} sebesar 0.94, dan rata - rata nilai \emph{F1-score} sebesar 0.94. Dapat dilihat berdasarkan matrix evaluasi ini, terdapat peningkatan performa pada model kedua jika dibandingkan dengan model pertama. 
+Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dataset \emph{testing} yang menghasilkan \emph{confusion matrix}. Dapat dilihat pada gambar \ref{fig:model2-cf}, untuk kosakata "tolong", "nama", "rumah", "delete", dan "translate" menghasilkan prediksi yang tepat untuk keseluruhan dataset \emph{testing} yang diujikan. Namun, kosakata "saya", "siapa", dan "standby" menghasilkan beberapa prediksi yang tidak sesuai dengan dataset \emph{testing}. Kosakata "maaf" menghasilkan 10 prediksi tepat dan 1 prediksi yang kurang tepat (dataset \emph{testing} bernilai "standb\\y"). Kosakata "saya" menghasilkan 11 prediksi tepat dan 2 prediksi yang kurang tepat (dataset \emph{testing} bernilai "siapa"). Kosakata "siapa" menghasilkan 5 prediksi tepat dan 1 prediksi yang kurang tepat (dataset \emph{testing} bernilai "saya"). Kosakata "standby" menghasilkan 7 prediksi tepat dan 1 prediksi yang kurang tepat (dataset \emph{testing} bernilai "siapa"). Dapat dilihat bahwa terdapat peningkatan performa dari model pertama dengan model kedua. Kosakata yang berhasil diprediksi sesuai dengan dataset \emph{testing} yang digunakan lebih banyak dibandingkan dengan model sebelumnya, yaitu 5 kosakata. Peningkatan ini disebabkan karena perubahan struktur dari model dengan adanya penggunaan \emph{layer Time Distributed} yang di dalamnya diisi dengan \emph{layer} Dense di lapisan awal model. Pengurangan pengunaan 1 \emph{layer} LSTM dapat dengan menggunakan fungsi aktivasi \emph{tanh}. Adapun berdasarkan \emph{confusion matrix} ini didapat matrix evaluasi berupa \emph{accuracy}, \emph{precision}, \emph{recall}, dan \emph{F1-score} yang dapat dilihat pada tabel \ref{tb:model2stat}. Rata - rata nilai \emph{accuracy} sebesar 0.93, nilai \emph{precision} sebesar 0.95, rata - rata nilai \emph{recall} sebesar 0.94, dan rata - rata nilai \emph{F1-score} sebesar 0.94. Dapat dilihat berdasarkan matrix evaluasi ini, terdapat peningkatan performa pada model kedua jika dibandingkan dengan model pertama. 
 
 \begin{figure}[H]
   \centering
@@ -132,22 +132,22 @@ Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dat
   \label{fig:model2-cf}
 \end{figure}
 
-\begin{longtable}{|c|c|c|c|}
+\begin{longtable}{|c|c|c|c|c|}
   \caption{Matrix Evaluasi Model 2}
   \label{tb:model2stat}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
-  \textbf{Kosakata} & \textbf{\emph{Accuracy}} & \textbf{\emph{Precision}} & \textbf{\emph{F1-Score}} \\
+  \textbf{Kosakata} & \textbf{\emph{Accuracy}} & \textbf{\emph{Precision}} & \textbf{\emph{Recall}} & \textbf{\emph{F1-Score}} \\
   \hline
-  Maaf              & 0.91                        & 1.00                   & 0.95                \\
-  Tolong            & 1.00                        & 1.00                   & 1.00                \\
-  Nama              & 1.00                        & 1.00                   & 1.00                \\
-  Saya              & 0.85                        & 0.92                   & 0.88                \\
-  Siapa             & 0.93                        & 0.62                   & 0.71                \\
-  Rumah             & 1.00                        & 1.00                   & 1.00                \\
-  Delete            & 1.00                        & 1.00                   & 1.00                \\
-  Standby           & 0.88                        & 0.88                   & 0.88                \\
-  Translate         & 1.00                        & 1.00                   & 1.00                \\
+  Maaf              & 1.00                        & 0.91                        & 1.00                   & 0.95                \\
+  Tolong            & 1.00                        & 1.00                        & 1.00                   & 1.00                \\
+  Nama              & 1.00                        & 1.00                        & 1.00                   & 1.00                \\
+  Saya              & 0.91                        & 0.85                        & 0.92                   & 0.88                \\
+  Siapa             & 0.62                        & 0.93                        & 0.62                   & 0.71                \\
+  Rumah             & 1.00                        & 1.00                        & 1.00                   & 1.00                \\
+  Delete            & 1.00                        & 1.00                        & 1.00                   & 1.00                \\
+  Standby           & 0.87                        & 0.88                        & 0.88                   & 0.88                \\
+  Translate         & 1.00                        & 1.00                        & 1.00                   & 1.00                \\
   \hline
 \end{longtable}
 
@@ -186,8 +186,7 @@ Berdasarkan dari \emph{training} yang telah dilakukan didapatkan bahwa model men
 \end{figure}
 
 
-Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dataset \emph{testing} yang menghasilkan \emph{confusion matrix}. Dapat dilihat pada gambar \ref{fig:model3-cf}, untuk kosakata "maaf", "tolong", "nama", "saya",  menghasilkan prediksi yang tepat untuk keseluruhan dataset \emph{testing} yang diujikan. Namun, pada kosakata "siapa" menghasilkan beberapa prediksi yang tidak sesuai dengan dataset \emph{testing}. Kosakata "siapa" menghasilkan 7 prediksi tepat dan 1 prediksi yang kurang tepat (dataset \emph{testing} bernilai "saya"). Dapat dilihat bahwa terdapat peningkatan performa dari model ketiga dibandingkan dengan model pertama dan kedua. Peningkatan ini disebabkan karena perubahan struktur dari model dengan penggunaan \emph{layer Time Distributed} yang didalamnya diisi dengan \emph{layer} Dense di lapisan awal model
-. Kemudian dilanjutkan dengan 2 buah \emph{layer} LSTM yang menggunakan fungsi aktivasi \emph{tanh} Adapun berdasarkan \emph{confusion matrix} ini didapat matrix evaluasi berupa \emph{accuracy}, \emph{precision}, \emph{recall}, dan \emph{F1-score} yang dapat dilihat pada tabel \ref{tb:model3stat}. Rata - rata nilai \emph{accuracy} sebesar 0.99, rata - rata nilai \emph{recall} sebesar 0.99, dan rata - rata nilai \emph{F1-score} sebesar 0.99. Dapat dilihat berdasarkan matrix evaluasi ini, terdapat peningkatan performa pada model ketiga jika dibandingkan dengan model pertama dan kedua.
+Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dataset \emph{testing} yang menghasilkan \emph{confusion matrix}. Dapat dilihat pada gambar \ref{fig:model3-cf}, untuk kosakata "maaf", "tolong", "nama", "saya",  menghasilkan prediksi yang tepat untuk keseluruhan dataset \emph{testing} yang diujikan. Namun, pada kosakata "siapa" menghasilkan beberapa prediksi yang tidak sesuai dengan dataset \emph{testing}. Kosakata "siapa" menghasilkan 7 prediksi tepat dan 1 prediksi yang kurang tepat (dataset \emph{testing} bernilai "saya"). Dapat dilihat bahwa terdapat peningkatan performa dari model ketiga dibandingkan dengan model pertama dan kedua. Peningkatan ini disebabkan karena perubahan struktur dari model dengan penggunaan \emph{layer Time Distributed} yang didalamnya diisi dengan \emph{layer} Dense di lapisan awal model. Kemudian dilanjutkan dengan 2 buah \emph{layer} LSTM yang menggunakan fungsi aktivasi \emph{tanh} Adapun berdasarkan \emph{confusion matrix} ini didapat matrix evaluasi berupa \emph{accuracy}, \emph{precision}, \emph{recall}, dan \emph{F1-score} yang dapat dilihat pada tabel \ref{tb:model3stat}. Rata - rata nilai \emph{accuracy} sebesar 0.99, rata - rata nilai \emph{precision} sebesar 0.99 rata - rata nilai \emph{recall} sebesar 0.98, dan rata - rata nilai \emph{F1-score} sebesar 0.99. Dapat dilihat berdasarkan matrix evaluasi ini, terdapat peningkatan performa pada model ketiga jika dibandingkan dengan model pertama dan kedua.
 
 \begin{figure}[H]
   \centering
@@ -199,42 +198,42 @@ Kemudian berdasarkan model yang telah dihasilkan, dilakukan pengujian dengan dat
 \end{figure}
 
 \newpage
-\begin{longtable}{|c|c|c|c|}
+\begin{longtable}{|c|c|c|c|c|c|}
   \caption{Matrix Evaluasi Model 3}
   \label{tb:model3stat}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
-  \textbf{Kosakata} & \textbf{\emph{Accuracy}} & \textbf{\emph{Precision}} & \textbf{\emph{F1-Score}} \\
+  \textbf{Kosakata} & \textbf{\emph{Accuracy}} & \textbf{\emph{Precision}} & \textbf{\emph{Recall}} & \textbf{\emph{F1-Score}} \\
   \hline
-  Maaf              & 1.00                        & 1.00                   & 1.00                \\
-  Tolong            & 1.00                        & 1.00                   & 1.00                \\
-  Nama              & 1.00                        & 1.00                   & 1.00                \\
-  Saya              & 0.92                        & 1.00                   & 0.96                \\
-  Siapa             & 1.00                        & 0.82                   & 0.93                \\
-  Rumah             & 1.00                        & 1.00                   & 1.00                \\
-  Delete            & 1.00                        & 1.00                   & 1.00                \\
-  Standby           & 1.00                        & 1.00                   & 1.00                \\
-  Translate         & 1.00                        & 1.00                   & 1.00                \\
+  Maaf              & 1.00                       & 1.00                        & 1.00                   & 1.00                \\
+  Tolong            & 1.00                       & 1.00                        & 1.00                   & 1.00                \\
+  Nama              & 1.00                       & 1.00                        & 1.00                   & 1.00                \\
+  Saya              & 1.00                       & 0.92                        & 1.00                   & 0.96                \\
+  Siapa             & 0.87                       & 1.00                        & 0.82                   & 0.93                \\
+  Rumah             & 1.00                       & 1.00                        & 1.00                   & 1.00                \\
+  Delete            & 1.00                       & 1.00                        & 1.00                   & 1.00                \\
+  Standby           & 1.00                       & 1.00                        & 1.00                   & 1.00                \\
+  Translate         & 1.00                       & 1.00                        & 1.00                   & 1.00                \\
   \hline
 \end{longtable}
 
 \subsection{Rangkuman Pengujian Bentuk Model}
 \label{sec:analisismodelseluruh}
 
-\begin{longtable}{|c|c|c|c|}
+\begin{longtable}{|c|c|c|c|c|}
   \caption{Rangkuman Pengujian Bentuk Model}
   \label{tb:evaluasiModel}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
-  \textbf{Model} & \textbf{Akurasi} & \emph{\textbf{Avg. Precision}} & \emph{\textbf{Avg. F1-Score}} \\
+  \textbf{Model} & \emph{\textbf{Avg. Accuracy}} & \emph{\textbf{Avg. Precision}} & \emph{\textbf{Avg. Recall}} & \emph{\textbf{Avg. F1-Score}} \\
   \hline
-  Model 1 & 0.85 & 0.85 & 0.83 \\
-  Model 2 & 0.94 & 0.94 & 0.94 \\
-  Model 3 & 0.99 & 0.99 & 0.99 \\
+  Model 1 & 0.85 & 0.85 & 0.85 & 0.83 \\
+  Model 2 & 0.93 & 0.95 & 0.94 & 0.94 \\
+  Model 3 & 0.99 & 0.99 & 0.98 & 0.99 \\
   \hline
 \end{longtable}
 
-Secara keseluruhan, berdasarkan tabel \ref{tb:evaluasiModel} bahwa seiring denagn peningkatan kompleksitas dari suatu model selaras dengan peningkatan performa dari model itu sendiri. Hal ini dapat ditunjukkan dengan peningkatan akurasi dari model 1, yaitu 0.85 atau 85\% menjadi pada model 3, yaitu 0.99 atau 99\%. Nilai \emph{average precision} dan \emph{average F1-Score} juga meningkat seiring dengan peningkatan stuktur dari model. Penggunaan \emph{layer TimeDistributed} dan diikuti 2 \emph{layer} LSTM menghasilkan model dengan performa terbaik.
+Secara keseluruhan, berdasarkan tabel \ref{tb:evaluasiModel} bahwa seiring denagn peningkatan kompleksitas dari suatu model selaras dengan peningkatan performa dari model itu sendiri. Hal ini dapat ditunjukkan dengan peningkatan akurasi dari model 1, yaitu 0.85 atau 85\% menjadi pada model 3, yaitu 0.99 atau 99\%. Nilai \emph{average precision}, {average recall},dan \emph{average F1-Score} juga meningkat seiring dengan peningkatan stuktur dari model. Penggunaan \emph{layer TimeDistributed} dan diikuti 2 \emph{layer} LSTM menghasilkan model dengan performa terbaik.
 
 \section{Pengujian Kondisi Cahaya}
 \label{sec:analisiscahaya}
@@ -472,7 +471,7 @@ Apabila dilihat berdasarkan waktu pemrosesan, rata - rata waktu yang dibutuhkan 
   \hline
 \end{longtable}
 
-Secara keseluruhan, dapat dilihat bahwa model dapat beradaptasi dengan baik terhadap perubahan intensitas cahaya. Pada tabel \ref{tb:evaluasiCahaya} dapat dilihat dengan nilai akurasi yang masih berada diatas 0.85 atau 85\%. Nilai akurasi cenderung meningkat seiring dengan semakin meningkatnya intensitas cahaya pada suatu ruangan. Akurasi tertinggi, yaitu pada nilai intensitas cahaya 85 lux dapat disebabkan oleh kemiripan data yang didapatkan pada intensitas cahaya tersebut dengan dataset yang dipelajadi oleh model. Kenaikan intensitas cahaya memudahkan kamera dalam menangkap gerakan isyarat pengguna dengan lebih jelas dan detail lagi sehingga nantinya \emph{framework} MediaPipe dapat mendapatkan data koordinat dengan lebih akurat lagi. Adapun pada nilai \emph{average complete time} terdapat penurunan yang cukup signifikan seiring dengan peningkatan intensitas cahaya. Penurunan juga terjadi pada nilai \emph{average processing time}. Hal ini dapat disebabkan oleh beban kerja kamera untuk bekerja pada intensitas cahaya yang rendah lebih tinggi.
+Secara keseluruhan, dapat dilihat bahwa model dapat beradaptasi dengan baik terhadap perubahan intensitas cahaya. Pada tabel \ref{tb:evaluasiCahaya} dapat dilihat dengan nilai akurasi yang masih berada diatas 0.85 atau 85\%. Nilai akurasi cenderung meningkat seiring dengan semakin meningkatnya intensitas cahaya pada suatu ruangan. Akurasi tertinggi, yaitu pada nilai intensitas cahaya 125 lux oleh kenaikan intensitas cahaya yang memudahkan kamera dalam menangkap gerakan isyarat pengguna dengan lebih jelas dan detail lagi sehingga nantinya \emph{framework} MediaPipe dapat mendapatkan data koordinat dengan lebih akurat lagi. Adapun pada nilai \emph{average complete time} terdapat penurunan yang cukup signifikan seiring dengan peningkatan intensitas cahaya. Penurunan juga terjadi pada nilai \emph{average processing time}. Hal ini dapat disebabkan oleh beban kerja kamera untuk bekerja pada intensitas cahaya yang rendah lebih tinggi.
 
 \newpage
 \section{Pengujian Kondisi Jarak}
